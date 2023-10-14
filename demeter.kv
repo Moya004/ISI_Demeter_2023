@@ -1,15 +1,66 @@
-MainWidget:
+LogInFloatLayout:
 
+<LogInFloatLayout>:
 
-
-<MainWidget>:
-    Button:
-        text: 'Login'
-        size: '300dp', '25dp'
-        pos: '250dp', '100dp'
-        color: 0, 1, 0, 1
+    BgLabel:
+        pos_hint: {'x': 0, 'y': 0}
+        size_hint: 1, .65
 
     Label:
         text: 'BIENVENIDO A\nDEMETER'
-        pos: '250dp', '400dp'
-        color: 0, 1, 0, 1
+        pos_hint: {'y': .45}
+        size_hint: None, None
+        size: '100dp', '150dp'
+        color: 0, 0, 0, 1
+
+    Label:
+        text: 'Usuario'
+        pos_hint: {'x':0, 'y': .35}
+        size_hint: None, None
+        size: '100dp', '100dp'
+        color: 0, 0, 0, 1
+
+    TextInput:
+        #size_hint: .3, .05
+        pos_hint: {'x':.025, 'y': .34}
+        size_hint: None, None
+        size: '200dp', '30dp'
+        multiline: False
+
+    Label:
+        text: 'Contraseña'
+        pos_hint: {'y': .20}
+        size_hint: None, None
+        size: '100dp', '100dp'
+        color: 0, 0, 0, 1
+
+    TextInput:
+        #size_hint: .3, .05
+        pos_hint: {'x':.025, 'y': .19}
+        size_hint: None, None
+        size: '200dp', '30dp'
+        multiline: False
+
+    Button:
+        text: 'Ingresar'
+        #size_hint: .3, .05
+        pos_hint: {'x':.025, 'y': .11}
+        size_hint: None, None
+        size: '200dp', '30dp'
+        on_press: root.login_click()
+
+
+
+
+
+<BackgroundColor>:
+    background_color: 1, 1, 1, 1
+    canvas.before:
+        Color:
+            rgba: root.background_color
+        Rectangle:
+            size: self.size
+            pos: self.pos
+
+
+<BgLabel>
