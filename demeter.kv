@@ -1,42 +1,44 @@
-LogInFloatLayout:
+LogIn:
 
-<LogInFloatLayout>:
+<LogIn>:
 
     BgLabel:
         pos_hint: {'x': 0, 'y': 0}
-        size_hint: 1, .65
+        size_hint: 1, .75
 
     Label:
         text: 'BIENVENIDO A\nDEMETER'
-        pos_hint: {'y': .45}
+        pos_hint: {'y': .55}
         size_hint: None, None
         size: '100dp', '150dp'
         color: 0, 0, 0, 1
 
     Label:
-        text: 'Usuario'
-        pos_hint: {'x':0, 'y': .35}
+        text: 'Identificacion'
+        pos_hint: {'x':0, 'y': .45}
         size_hint: None, None
         size: '100dp', '100dp'
         color: 0, 0, 0, 1
 
     TextInput:
+        id: UserText
         #size_hint: .3, .05
-        pos_hint: {'x':.025, 'y': .34}
+        pos_hint: {'x':.025, 'y': .44}
         size_hint: None, None
         size: '200dp', '30dp'
         multiline: False
 
     Label:
         text: 'Contraseña'
-        pos_hint: {'y': .20}
+        pos_hint: {'y': .3}
         size_hint: None, None
         size: '100dp', '100dp'
         color: 0, 0, 0, 1
 
     TextInput:
+        id: PassText
         #size_hint: .3, .05
-        pos_hint: {'x':.025, 'y': .19}
+        pos_hint: {'x':.025, 'y': .29}
         size_hint: None, None
         size: '200dp', '30dp'
         multiline: False
@@ -44,10 +46,10 @@ LogInFloatLayout:
     Button:
         text: 'Ingresar'
         #size_hint: .3, .05
-        pos_hint: {'x':.025, 'y': .11}
+        pos_hint: {'x':.025, 'y': .21}
         size_hint: None, None
         size: '200dp', '30dp'
-        on_press: root.login_click()
+        on_press: root.login_click(UserText.text, PassText.text)
 
 
 

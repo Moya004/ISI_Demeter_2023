@@ -2,13 +2,13 @@ from kivy.app import App
 from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.widget import Widget
 from kivy.uix.label import Label
-from  manageBD import TestConnection
+from manageBD import LogIn
 
 
-class LogInFloatLayout(FloatLayout):
+class LogIn(FloatLayout):
 
-    def login_click(self) -> None:
-        TestConnection()
+    def login_click(self, cc: str, pas: str) -> None:
+        print(LogIn().connect(cc, pas))
 
 
 class BackgroundColor(Widget):
