@@ -3,8 +3,8 @@ import psycopg2 as pg
 
 
 class Connection:
-    _user: str = 'postgres'
-    _pass: str = 'udc'
+    _user: str = 'us_Connect'
+    _pass: str = 'con'
     _host: str = 'localhost'
     _database: str = 'DemeterBD'
     _port_id: int = 5432
@@ -34,6 +34,8 @@ class Connection:
 class LogIn(Connection):
 
     def __init__(self) -> None:
+        self._user = 'us_Login'
+        self._pass = 'log'
         super().__init__()
 
     def connect(self, ident: str, contrasena: str) -> bool:
