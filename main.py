@@ -5,7 +5,7 @@ from kivy.uix.label import Label
 from manageBD import LogIn
 
 
-class LogIn(FloatLayout):
+class LogInLayout(FloatLayout):
 
     def login_click(self, cc: str, pas: str) -> None:
         print(LogIn().connect(cc, pas))
