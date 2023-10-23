@@ -8,7 +8,7 @@ from manageBD import LogIn
 class LogInLayout(FloatLayout):
 
     def login_click(self, cc: str, pas: str) -> None:
-        print(LogIn().connect(cc, pas))
+        print(LogIn().Log(cc, pas))
 
 
 class BackgroundColor(Widget):

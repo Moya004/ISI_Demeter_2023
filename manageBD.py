@@ -38,7 +38,7 @@ class LogIn(Connection):
         self._pass = 'log'
         super().__init__()
 
-    def connect(self, ident: str, contrasena: str) -> bool:
+    def Log(self, ident: str, contrasena: str) -> bool:
         cursor = self._connect.cursor()
         try:
             cursor.execute("SELECT CLAVE FROM Agricultor WHERE Agricultor.AG_ID = %s", (ident,))
