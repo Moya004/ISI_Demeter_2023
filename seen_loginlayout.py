@@ -15,4 +15,3 @@ class BackgroundColor(Widget):
 class BgLabel(Label, BackgroundColor):
     pass
 
-Builder.load_file("LogInLayout.kv")
