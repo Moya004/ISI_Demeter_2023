@@ -1,4 +1,7 @@
-from seen import DemeterApp
+from kivy.app import App
+
+class DemeterApp(App):
+    pass
 
 if __name__ == '__main__':
     DemeterApp().run()
