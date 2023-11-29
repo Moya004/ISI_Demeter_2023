@@ -1,0 +1,60 @@
+VersionScreen:
+
+<VersionScreen>:
+    BgLabel:
+        #background_color: 226/255, 226/255, 133/255, 1
+        background_color: 244/255, 244/255, 244/255, 1
+        size_hint: 1, 1
+        pos_hint: {'right': 1, 'y': 0}
+
+    Image:
+        source: 'imagenes_Demeter/logo/logo-sinfondo.png'
+        size_hint: None, None
+        size: '300dp' , '300dp'
+        pos_hint: {'center_x': 0.5, 'top': 1}
+
+
+    Image:
+        source: 'imagenes_Demeter/logo/logo-black-sinfondo.png'
+        size_hint: None, None
+        size: '300dp' , '30dp'
+        pos_hint: {'center_x': 0.5, 'y': .45 }
+
+
+    Label:
+        text: 'Versión actual: 1.0.1'
+        pos_hint: {'center_x': .5 , 'y': .3}
+        size_hint: None, None
+        color: 0, 0, 0, 1
+        font_size: 18
+        font_name: 'font/louis_george_cafe/Louis George Cafe.ttf'
+
+
+    BgCanvas:
+        canvas:
+            Color:
+                #rgba(90, 139, 48, 1)
+                rgba: 90/255, 139/255, 48/255, 1
+            RoundedRectangle:
+                pos: self.width * 0.35, self.height * 0.25
+                size: self.width * 0.3, self.height * 0.07
+                radius: [5, 5, 5, 5]  # Radios de las esquinas
+
+
+    Label:
+        text: 'Ultima version: 1.0.1'
+        pos_hint: {'center_x': .5 , 'y': .2}
+        size_hint: None, None
+        color: 244/255, 244/255, 244/255, 1
+        font_size: 18
+        font_name: 'font/louis_george_cafe/Louis George Cafe Bold.ttf'
+
+
+    Button:
+        # Usa una imagen como background del botón
+        background_normal: 'imagenes_Demeter/Elements-Various/flecha.png'
+        background_down: 'imagenes_Demeter/Elements-Various/flecha.png'
+        pos_hint: {'x': .9, 'y': .01}
+        size_hint: None, None
+        size: '70dp', '70dp'
+        on_press: root.parent.parent.parent.switch_content('Profile')
