@@ -1,0 +1,145 @@
+AnalysisScreen:
+
+<AnalysisScreen>:
+    BgLabel:
+        background_color: 244/255, 244/255, 244/255, 1
+        size_hint: 1, 1
+        pos_hint: {'right': 1, 'y': 0}
+
+    BgCanvas:
+        canvas:
+            Rectangle:
+                pos: self.width * 0, self.height * 0.59
+                size: self.width * 1, self.height * 0.43
+
+    Label:
+        text: 'ANALISIS'
+        pos_hint: {'x': .055, 'y': .87}
+        size_hint: None, None
+        color: 0, 0, 0, 1
+        font_size: 20
+        font_name: 'font/louis_george_cafe/Louis George Cafe.ttf'
+
+    BgCanvas:
+        canvas:
+            Color:
+                #rgba(255, 226, 133, 1)
+                rgba: 255/255, 226/255, 133/255, 1
+            RoundedRectangle:
+                pos: self.width * 0.7, self.height * 0.8
+                size: self.width * 0.2, self.height * 0.05
+                radius: [15, 15, 15, 15]  # Radios de las esquinas
+
+
+    BgCanvas:
+        canvas:
+            Color:
+                #rgba(255, 226, 133, 1)
+                rgba: 255/255, 226/255, 133/255, 1
+            RoundedRectangle:
+                pos: self.width * 0.45, self.height * 0.8
+                size: self.width * 0.2, self.height * 0.05
+                radius: [15, 15, 15, 15]  # Radios de las esquinas
+
+
+    Label:
+        text: 'Ultima modificacion'
+        pos_hint: {'x': .14 , 'y': .74}
+        size_hint: None, None
+        color: 0, 0, 0, 1
+        font_size: 18
+        font_name: 'font/louis_george_cafe/Louis George Cafe.ttf'
+
+
+    Label:
+        text: 'Fecha'
+        pos_hint: {'x': .48 , 'y': .8}
+        size_hint: None, None
+        color: 0, 0, 0, 1
+        font_size: 17
+        font_name: 'font/louis_george_cafe/Louis George Cafe.ttf'
+
+
+    Label:
+    #esto lo debes hacer tu ya que es concetandola a la base de datos
+        text: '00/00/0000'
+        pos_hint: {'x': .48 , 'y': .74}
+        size_hint: None, None
+        color: 0, 0, 0, 1
+        font_size: 17
+        font_name: 'font/louis_george_cafe/Louis George Cafe.ttf'
+
+
+    Label:
+        text: 'Hora'
+        pos_hint: {'x': .735 , 'y': .8}
+        size_hint: None, None
+        color: 0, 0, 0, 1
+        font_size: 17
+        font_name: 'font/louis_george_cafe/Louis George Cafe.ttf'
+
+
+    Label:
+    #esto lo debes hacer tu ya que es concetandola a la base de datos
+        text: '00:00 am'
+        pos_hint: {'x': .735 , 'y': .74}
+        size_hint: None, None
+        color: 0, 0, 0, 1
+        font_size: 17
+        font_name: 'font/louis_george_cafe/Louis George Cafe.ttf'
+
+
+    Label:
+        text: '¿Realizar un analisis?'
+        pos_hint: {'center_x': .5, 'y': .65}
+        size_hint: None, None
+        color: 0, 0, 0, 1
+        font_size: 25
+        font_name: 'font/louis_george_cafe/Louis George Cafe.ttf'
+
+
+    Button:
+        text: 'Analizar'
+        pos_hint: {'center_x':.5, 'y': .62}
+        size_hint: None, None
+        size: '200dp', '35dp'
+        #Aqui estoy desactivando el color normal del boton
+        background_normal: ''
+        #tambien desactive el color que toma al activarse
+        background_down: ''
+        #Este es para definir el color del boton
+        background_color: 118/255.0, 163/255.0, 79/255.0, 1
+        #Defini la fuente y deje el tamaño por defecto
+        font_name: 'font/louis_george_cafe/Louis George Cafe Bold.ttf'
+        on_press:
+
+
+    BgCanvas:
+        canvas:
+            Color:
+                #rgba(255, 226, 133, 1)
+                rgba: 255/255, 255/255, 255/255, 1
+            RoundedRectangle:
+                pos: self.width * 0.05, self.height * 0
+                size: self.width * 0.9, self.height * 0.55
+                radius: [50, 50, 15, 15]  # Radios de las esquinas
+
+
+    Label:
+        text: 'Lo que mida el sensor'
+        pos_hint: {'x': .15 , 'y': .35}
+        size_hint: None, None
+        color: 0, 0, 0, 1
+        font_size: 18
+        font_name: 'font/louis_george_cafe/Louis George Cafe.ttf'
+
+
+    BgCanvas:
+        canvas:
+            Color:
+                #rgba(255, 226, 133, 1)
+                rgba: 255/255, 226/255, 133/255, 1
+            RoundedRectangle:
+                pos: self.width * 0.55, self.height * 0.4
+                size: self.width * 0.3, self.height * 0.07
+                radius: [5, 5, 5, 5]  # Radios de las esquinas
