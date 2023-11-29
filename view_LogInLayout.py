@@ -8,7 +8,12 @@ from manageBD import LogIn
 
 class LogInLayout(FloatLayout):
     def login_click(self, cc: str, pas: str) -> None:
-        print(LogIn().Log(cc, pas))
+        if LogIn().Log(cc, pas):
+            self.ids.LabelCredenciales.color = 1, 1, 1
+            self.parent.parent.push("SecondScreen")
+        else:
+            self.ids.LabelCredenciales.color = 1, 0, 0
+
 
 
 class BackgroundColor(Widget):

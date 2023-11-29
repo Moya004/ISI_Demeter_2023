@@ -105,9 +105,19 @@ LogInLayout:
         background_color: 118/255.0, 163/255.0, 79/255.0, 1
         #Defini la fuente y deje el tamaño por defecto
         font_name: 'font/louis_george_cafe/Louis George Cafe Bold.ttf'
-        on_press: root.parent.parent.push("SecondScreen")
+        #on_press: root.parent.parent.push("SecondScreen")
         #Estaras en comentarios provisionalmente
-        #on_press: root.login_click(UserText.text, PassText.text)
+        on_press: root.login_click(UserText.text, PassText.text)
+
+    Label:
+        id: LabelCredenciales
+        text: 'Credenciales incorrectas'
+        pos_hint: {'x': 0.05, 'y': .07}
+        size_hint: None, None
+        size: '100dp', '100dp'
+        color: 1, 1, 1, 1
+        font_size: 14
+        font_name: 'font/louis_george_cafe/Louis George Cafe.ttf'
 
     #aqui añadi la opcion cambiar de contraseña
     #[u][/u] es para que el texto aparezca con la raya abajo
