@@ -1,0 +1,53 @@
+#:import Menu_BarAux Menu_BarAux
+#:import view_Home view_Home
+#:import view_AlertScreen view_AlertScreen
+#:import view_AlertsMore view_AlertsMore
+#:import view_GraphicScreen view_GraphicScreen
+#:import view_AnalysisScreen view_AnalysisScreen
+#:import view_SearchScreen view_SearchScreen
+#:import view_ProfileScreen view_ProfileScreen
+#:import view_VersionScreen view_VersionScreen
+
+<MainLayout>:
+
+    orientation: 'horizontal'
+
+    MenuBar:
+        size_hint: None, 1
+        size: '70dp' , '0dp'
+
+    ScreenManager:
+
+        id: content_manager
+
+        ContentScreen:
+            name: 'Home'
+            HomeScreen:
+
+        ContentScreen:
+            name: 'Alerts'
+            AlertScreen:
+
+        ContentScreen:
+            name: 'AlertsMore'
+            AlertMoreScreen:
+
+        ContentScreen:
+            name: 'Analysis'
+            AnalysisScreen:
+
+        ContentScreen:
+            name: 'Statistics'
+            GraphicScreen:
+
+        ContentScreen:
+            name: 'Search'
+            SearchScreen:
+
+        ContentScreen:
+            name: 'Profile'
+            ProfileScreen:
+
+        ContentScreen:
+            name: 'Version'
+            VersionScreen:
