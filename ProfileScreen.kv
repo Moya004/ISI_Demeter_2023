@@ -1,0 +1,93 @@
+ProfileScreen:
+
+<ProfileScreen>:
+
+    BgLabel:
+        #background_color: 226/255, 226/255, 133/255, 1
+        background_color: 244/255, 244/255, 244/255, 1
+        size_hint: 1, 1
+        pos_hint: {'right': 1, 'y': 0}
+
+
+    BgCanvas:
+        canvas:
+            Rectangle:
+                pos: self.width * 0.05, self.height * 0.47
+                size: self.width * 0.9, self.height * 0.25
+
+
+    BgCanvas:
+        canvas:
+            Rectangle:
+                pos: self.width * 0.05, self.height * 0.05
+                size: self.width * 0.9, self.height * 0.4
+
+
+    Label:
+        text: 'AJUSTES'
+        #rgba(166, 166, 166, 1)'
+        pos_hint: {'x': .07, 'y': .27}
+        size_hint: None, None
+        color: 166/255, 166/255, 166/255, 1
+        font_size: 17
+        font_name: 'font/louis_george_cafe/Louis George Cafe Bold.ttf'
+
+    Label:
+        id: 'Reset-profile'
+        text: 'Cambiar contraseña'
+        #rgba(166, 166, 166, 1)'
+        pos_hint: {'x': .13, 'y': .23}
+        size_hint: None, None
+        color: 0, 0, 0, 1
+        font_size: 17
+        font_name: 'font/louis_george_cafe/Louis George Cafe Bold.ttf'
+        on_touch_up: app.root.handle_touch('Reset-profile', 'Reset', *args) if self.collide_point(*args[1].pos) else None
+
+
+    Label:
+        text: 'Borrar Caché'
+        #rgba(166, 166, 166, 1)'
+        pos_hint: {'x': .09, 'y': .19}
+        size_hint: None, None
+        color: 0, 0, 0, 1
+        font_size: 17
+        font_name: 'font/louis_george_cafe/Louis George Cafe Bold.ttf'
+
+
+    Label:
+        text: 'INFORMACION'
+        #rgba(166, 166, 166, 1)'
+        pos_hint: {'x': .1, 'y': .14}
+        size_hint: None, None
+        color: 166/255, 166/255, 166/255, 1
+        font_size: 17
+        font_name: 'font/louis_george_cafe/Louis George Cafe Bold.ttf'
+
+    Label:
+        text: 'Ayuda'
+        #rgba(166, 166, 166, 1)'
+        pos_hint: {'x': .051, 'y': .1}
+        size_hint: None, None
+        color: 0, 0, 0, 1
+        font_size: 17
+        font_name: 'font/louis_george_cafe/Louis George Cafe Bold.ttf'
+
+    Label:
+        id: version-view
+        text: 'Versión de aplicacion'
+        #rgba(166, 166, 166, 1)'
+        pos_hint: {'x': .13, 'y': .05}
+        size_hint: None, None
+        color: 0, 0, 0, 1
+        font_size: 17
+        font_name: 'font/louis_george_cafe/Louis George Cafe Bold.ttf'
+        on_touch_up: root.parent.parent.parent.handle_touch('version-view', 'Version', *args) if self.collide_point(*args[1].pos) else None
+
+    Label:
+        text: 'Cerrar sesion'
+        #rgba(255, 49, 49, 1)
+        pos_hint: {'x': .09, 'y': .005}
+        size_hint: None, None
+        color: 255/255, 49/255, 49/255, 1
+        font_size: 17
+        font_name: 'font/louis_george_cafe/Louis George Cafe Bold.ttf'
