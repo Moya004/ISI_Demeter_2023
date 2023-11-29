@@ -1,17 +1,18 @@
 from kivy.lang import Builder
 from kivy.uix.floatlayout import FloatLayout
-from kivy.uix.widget import Widget
 from kivy.uix.label import Label
-from manageBD import LogIn
+from kivy.uix.widget import Widget
 
-class LogInLayout(FloatLayout):
-    def login_click(self, cc: str, pas: str) -> None:
-        print(LogIn().Log(cc, pas))
+class SearchScreen(FloatLayout):
+    pass
 
 class BackgroundColor(Widget):
     pass
 
-
 class BgLabel(Label, BackgroundColor):
     pass
 
+class BgCanvas(Widget):
+    pass
+
+Builder.load_file('SearchSreen.kv')
