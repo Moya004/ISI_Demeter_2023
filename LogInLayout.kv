@@ -10,7 +10,7 @@ LogInLayout:
 #a menos que le añadas cosas referentes a la base de datos como lo de validar que el usuario si este
 
 #esto es para evitar inconvenientes al cargar 
-<LogInLayout@FloatLayout>:
+<LogInLayout>:
 
     #aqui añadi la imagen banner que ocupa el .25 de la pantalla
     Image:
@@ -18,7 +18,6 @@ LogInLayout:
         #uso esto para que ocupe la pantalla completa y se va redimensionando conforme altero la ventana
         allow_stretch: True
         keep_ratio: False
-
         size_hint: 1, 0.25
         pos_hint: {'x': 0, 'top': 1}
 
@@ -33,7 +32,6 @@ LogInLayout:
         size_hint: None, None
         size: '100dp', '150dp'
         color: 0, 0, 0, 1
-
         #Defini la fuente y el tamaño de la misma
         font_size: 27
         font_name: 'font/louis_george_cafe/Louis George Cafe.ttf'
@@ -44,13 +42,13 @@ LogInLayout:
         size_hint: None, None
         size: '100dp', '100dp'
         color: 0, 0, 0, 1
-
         #Defini la fuente y el tamaño de la misma
         font_size: 17
         font_name: 'font/louis_george_cafe/Louis George Cafe.ttf'
 
     TextInput:
         id: UserText
+        hint_text: "Ingrese su usuario"
         pos_hint: {'x':.025, 'y': .44}
         size_hint: None, None
         size: '200dp', '30dp'
@@ -78,11 +76,12 @@ LogInLayout:
 
     TextInput:
         id: PassText
+        hint_text: "Ingrese su contraseña"
         pos_hint: {'x':.025, 'y': .29}
         size_hint: None, None
         size: '200dp', '30dp'
         multiline: False
-
+        password: True
         #Para cambiar los bordes toca hacer cargando una imgen del tamño que lo definimos en el size desde photoshop
         background_normal: 'imagenes_Demeter/Elements-Various/TextInput-Border.png'
 
@@ -106,11 +105,14 @@ LogInLayout:
         background_color: 118/255.0, 163/255.0, 79/255.0, 1
         #Defini la fuente y deje el tamaño por defecto
         font_name: 'font/louis_george_cafe/Louis George Cafe Bold.ttf'
-        on_press: root.login_click(UserText.text, PassText.text)
+        on_press: root.parent.parent.push("SecondScreen")
+        #Estaras en comentarios provisionalmente
+        #on_press: root.login_click(UserText.text, PassText.text)
 
     #aqui añadi la opcion cambiar de contraseña
     #[u][/u] es para que el texto aparezca con la raya abajo
     Label:
+        id: 'Label_Reset'
         text: '[u]Olvidaste tu contraseña[/u]'
         #lo de [u][/u] se activa con esto, en caso contrario saldria el [u][/u] como un texto
         markup: True
@@ -121,6 +123,8 @@ LogInLayout:
         #defini tipografia y tamaño
         font_size: 12
         font_name: 'font/louis_george_cafe/Louis George Cafe.ttf'
+        #Redirecciona a una ventana a la cual se le pasa el nombre y tambien recibe el id del label de la accion
+        on_touch_up: app.root.handle_touch('Label_Reset', 'Reset', *args) if self.collide_point(*args[1].pos) else None
 
 <BackgroundColor>:
     background_color: 1, 1, 1, 1
