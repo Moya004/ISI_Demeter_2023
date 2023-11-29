@@ -1,135 +1,31 @@
 #asi es como se importa otros archivos .py
 
 #:import navigation_screen_manager navigation_screen_manager
-#:import seen_loginlayout seen_loginlayout
-ScreenManager:
+#:import view_LogInLayout view_LogInLayout
+#:import view_ResetPassword view_ResetPassword
+#:import view_CorrectReset view_CorrectReset
+#:import view_Home view_Home
+#:import Menu_BarAux Menu_BarAux
 
-<ScreenManager@NavigationScreenManager>:
+Manager_Screens:
+
+
+<Manager_Screens@NavigationScreenManager>:
+
+    id: content_manager
 
     Screen:
         name: "login"
-        #esto es para evitar inconvenientes al cargar
         LogInLayout:
-            #aqui añadi la imagen banner que ocupa el .25 de la pantalla
-            Image:
-                source: 'imagenes_Demeter/pictures/Banner-login.png'
-                #uso esto para que ocupe la pantalla completa y se va redimensionando conforme altero la ventana
-                allow_stretch: True
-                keep_ratio: False
 
-                size_hint: 1, 0.25
-                pos_hint: {'x': 0, 'top': 1}
-            #el resto de la pantalla que es el .75 lo ocupa los botones y otros elementos
-            BgLabel:
-                size_hint: 1, 0.75
-                pos_hint: {'x': 0, 'y': 0}
+    Screen:
+        name: "Reset"
+        ResetScreen:
 
-            Label:
-                text: 'BIENVENIDO A\nDEMETER'
-                pos_hint: {'x': .07 , 'y': .52}
-                size_hint: None, None
-                size: '100dp', '150dp'
-                color: 0, 0, 0, 1
+    Screen:
+        name: "Correct_reset"
+        CorrectResetScreen:
 
-                #Defini la fuente y el tamaño de la misma
-                font_size: 27
-                font_name: 'font/louis_george_cafe/Louis George Cafe.ttf'
-
-            Label:
-                text: 'Identificacion'
-                pos_hint: {'x':.025, 'y': .45}
-                size_hint: None, None
-                size: '100dp', '100dp'
-                color: 0, 0, 0, 1
-
-                #Defini la fuente y el tamaño de la misma
-                font_size: 17
-                font_name: 'font/louis_george_cafe/Louis George Cafe.ttf'
-
-            TextInput:
-                id: UserText
-                pos_hint: {'x':.025, 'y': .44}
-                size_hint: None, None
-                size: '200dp', '30dp'
-                multiline: False
-
-                #Para cambiar los bordes toca hacer cargando una imgen del tamño que lo definimos en el size desde photoshop
-                background_normal: 'imagenes_Demeter/Elements-Various/TextInput-Border.png'
-
-                #El estado normal del TextInput es diferente al activo por lo tanto secarga la misma imagen para que mantenga
-                #el estilo
-                background_active: 'imagenes_Demeter/Elements-Various/TextInput-Border.png'
-                font_name: 'font/louis_george_cafe/Louis George Cafe.ttf'
-
-            Label:
-                text: 'Contraseña'
-                pos_hint: {'x': .02, 'y': .3}
-                size_hint: None, None
-                size: '100dp', '100dp'
-                color: 0, 0, 0, 1
-
-                #Defini la fuente y el tamaño de la misma
-
-                font_size: 17
-                font_name: 'font/louis_george_cafe/Louis George Cafe.ttf'
-
-            TextInput:
-                id: PassText
-                pos_hint: {'x':.025, 'y': .29}
-                size_hint: None, None
-                size: '200dp', '30dp'
-                multiline: False
-
-                #Para cambiar los bordes toca hacer cargando una imgen del tamño que lo definimos en el size desde photoshop
-                background_normal: 'imagenes_Demeter/Elements-Various/TextInput-Border.png'
-
-                #El estado normal del TextInput es diferente al activo por lo tanto secarga la misma imagen para que mantenga
-                #el estilo
-                background_active: 'imagenes_Demeter/Elements-Various/TextInput-Border.png'
-
-                #Estoy cambiando la fuente en este fragmento
-                font_name: 'font/louis_george_cafe/Louis George Cafe.ttf'
-
-            Button:
-                text: 'Ingresar'
-                pos_hint: {'x':.025, 'y': .21}
-                size_hint: None, None
-                size: '200dp', '30dp'
-                #Aqui estoy desactivando el color normal del boton
-                background_normal: ''
-                #tambien desactive el color que toma al activarse
-                background_down: ''
-                #Este es para definir el color del boton
-                background_color: 118/255.0, 163/255.0, 79/255.0, 1
-                #Defini la fuente y deje el tamaño por defecto
-                font_name: 'font/louis_george_cafe/Louis George Cafe Bold.ttf'
-                on_press: root.login_click(UserText.text, PassText.text)
-
-            #aqui añadi la opcion cambiar de contraseña
-            #[u][/u] es para que el texto aparezca con la raya abajo
-            Label:
-                text: '[u]Olvidaste tu contraseña[/u]'
-                #lo de [u][/u] se activa con esto, en caso contrario saldria el [u][/u] como un texto
-                markup: True
-                pos_hint: {'x': .08 , 'y': .05}
-                size_hint: None, None
-                size: '50dp', '50dp'
-                color: 0, 0, 0, 1
-                #defini tipografia y tamaño
-                font_size: 12
-                font_name: 'font/louis_george_cafe/Louis George Cafe.ttf'
-
-<BackgroundColor>:
-    background_color: 1, 1, 1, 1
-    canvas.before:
-        Color:
-            rgba: root.background_color
-        Rectangle:
-            size: self.size
-            pos: self.pos
-
-<BgLabel>
-
-
-
-
+    Screen:
+        name: 'SecondScreen'
+        MainLayout:
