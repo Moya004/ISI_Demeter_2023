@@ -1,0 +1,47 @@
+CorrectResetScreen:
+
+<CorrectResetScreen>:
+    BgLabel:
+        size_hint: 1, 1
+        pos_hint: {'x': 0, 'y': 0}
+
+    Image:
+        source: 'imagenes_Demeter/icons-green/CorrectReset.png'
+        pos_hint: {'center_x': .5 , 'y': .62}
+        size_hint: None, None
+        size: '200dp', '200dp'
+
+    Label:
+        text: 'RESTABLECIMIENTO\nEXITOSO'
+        halign: 'center'
+        valign: 'middle'
+        pos_hint: {'center_x': .5 , 'y': .40}
+        size_hint: None, None
+        size: '100dp', '150dp'
+        color: 0, 0, 0, 1
+        font_size: 25
+        font_name: 'font/louis_george_cafe/Louis George Cafe.ttf'
+
+    Label:
+        id: 'redirigir'
+        text: '[u]Iniciar Sesion[/u]'
+        markup: True
+        pos_hint: {'center_x': .5 , 'y': .05}
+        size_hint: None, None
+        size: '100dp', '150dp'
+        #rgba(47, 66, 7, 1)
+        color: 47/255, 66/255, 7/255, 1
+        font_size: 12
+        font_name: 'font/louis_george_cafe/Louis George Cafe.ttf'
+        on_touch_up: app.root.pop_to_label('login', 'redirigir') if self.collide_point(*args[1].pos) else None
+
+<BackgroundColor>:
+    background_color: 1, 1, 1, 1
+    canvas.before:
+        Color:
+            rgba: root.background_color
+        Rectangle:
+            size: self.size
+            pos: self.pos
+
+<BgLabel>
