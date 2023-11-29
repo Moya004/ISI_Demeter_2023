@@ -1,0 +1,77 @@
+
+<MenuBar>:
+
+    BgLabel:
+        background_color: 118/255, 163/255, 79/255, 1
+        pos_hint: {'x': 0, 'top': 1}
+
+
+        GridLayout:
+            cols: 1  # Solo una columna
+            spacing: '1dp'  # Espacio entre las imágenes
+            x: '-5dp' #ajustar la posicion con respecto al eje x
+            size_hint: (None, None)
+            height: '600dp'  # Ajusta la altura según sea necesario
+
+            Button:
+                id: HomeIcon
+                size_hint: None, None
+                size: '80dp', '80dp'
+                background_normal: 'imagenes_Demeter/icons-white/home.png'
+                background_down: 'imagenes_Demeter/icons-green/icons-color/home1.png'
+                size_hint_y: None
+                on_press: root.parent.switch_content("Home")
+
+            Button:
+                id: AlertsIcon
+                size_hint: None, None
+                size: '80dp', '80dp'
+                background_normal: 'imagenes_Demeter/icons-white/4.png'
+                background_down: 'imagenes_Demeter/icons-green/icons-color/alert.png'
+                size_hint_y: None
+                on_press: root.parent.switch_content("Alerts")
+
+            Button:
+                id: SearchIcon
+                size_hint: None, None
+                size: '80dp', '80dp'
+                background_normal: 'imagenes_Demeter/icons-white/search.png'
+                background_down: 'imagenes_Demeter/icons-green/icons-color/search.png'
+                size_hint_y: None
+                on_press: root.parent.switch_content("Analysis")
+
+
+            Button:
+                id: GraphicIcon
+                size_hint: None, None
+                size: '80dp', '80dp'
+                background_normal: 'imagenes_Demeter/icons-white/graphic.png'
+                background_down: 'imagenes_Demeter/icons-green/icons-color/Graphic.png'
+                size_hint_y: None
+                on_press: root.parent.switch_content("Statistics")
+
+            Button:
+                id: CropIcon
+                size_hint: None, None
+                size: '80dp', '80dp'
+                background_normal: 'imagenes_Demeter/icons-white/crop.png'
+                background_down: 'imagenes_Demeter/icons-green/icons-color/crop.png'
+                size_hint_y: None
+                on_press: root.parent.switch_content("Search")
+
+            Button:
+                id: ProfileIcon
+                size_hint: None, None
+                size: '80dp', '80dp'
+                background_normal: 'imagenes_Demeter/icons-white/profile.png'
+                background_down: 'imagenes_Demeter/icons-green/icons-color/profile.png'
+                size_hint_y: None
+                on_press: root.parent.switch_content("Profile")
+
+        Image:
+            source: 'imagenes_Demeter/icons-white/Logo-White.png'
+            size_hint_y: None
+            height: '60dp'
+            pos_hint: {'center_x': 0.5, 'y': .5}
+            x: '-12.2dp'
+
