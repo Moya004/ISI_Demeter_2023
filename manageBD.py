@@ -3,10 +3,10 @@ import psycopg2 as pg
 
 
 class Connection:
-    _user: str = 'us_Connect'
-    _pass: str = 'con'
-    _host: str = 'localhost'
-    _database: str = 'DemeterBD'
+    _user: str = 'pumxvadejwyjtj'
+    _pass: str = 'f9c6675931e156cffe64579f73c770f0c72a23022544b5d744a5697e6e3f9546'
+    _host: str = 'ec2-54-156-8-21.compute-1.amazonaws.com'
+    _database: str = 'd96l7jhuq6fdkd'
     _port_id: int = 5432
     _connect = None
 
@@ -14,7 +14,6 @@ class Connection:
         try:
             self._connect = pg.connect(user=self._user, password=self._pass, host=self._host, dbname=self._database,
                                        port=self._port_id)
-            print('connection established')
 
         except Exception as ex:
             print('connection failed')
@@ -27,15 +26,12 @@ class Connection:
             self._connect.close()
         except Exception as ex:
             print(f'Fallo al desconectar:\n {ex}')
-        print("Cerrando....")
         return
 
 
 class LogIn(Connection):
 
     def __init__(self) -> None:
-        self._user = 'us_Login'
-        self._pass = 'log'
         super().__init__()
 
     def Log(self, ident: str, contrasena: str) -> bool:
@@ -44,7 +40,7 @@ class LogIn(Connection):
             cursor.execute("SELECT CLAVE FROM Agricultor WHERE Agricultor.AG_ID = %s", (ident,))
             result = cursor.fetchone()
             try:
-                if result[0] == contrasena:
+                if contrasena == result[0]:
                     return True
             except TypeError as tp:
                 return False
