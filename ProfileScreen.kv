@@ -15,7 +15,36 @@ ProfileScreen:
                 pos: self.width * 0.05, self.height * 0.47
                 size: self.width * 0.9, self.height * 0.25
 
+    Label:
+        id: 'name_profile'
+        text: 'Nombre completo: ' + root.info[2]
+        #rgba(166, 166, 166, 1)'
+        pos_hint: {'x': .17, 'y': .62}
+        size_hint: None, None
+        color: 0, 0, 0, 1
+        font_size: 17
+        font_name: 'font/louis_george_cafe/Louis George Cafe Bold.ttf'
 
+    Label:
+        id: 'id_profile'
+        text: 'ID: ' + root.info[0]
+        #rgba(166, 166, 166, 1)'
+        pos_hint: {'x': .13, 'y': .60}
+        size_hint: None, None
+        color: 0, 0, 0, 1
+        font_size: 17
+        font_name: 'font/louis_george_cafe/Louis George Cafe Bold.ttf'
+
+    Label:
+        id: 'mail_profile'
+        text: 'Correo: ' + root.info[1]
+        #rgba(166, 166, 166, 1)'
+        pos_hint: {'x': .13, 'y': .58}
+        size_hint: None, None
+        color: 0, 0, 0, 1
+        font_size: 17
+        font_name: 'font/louis_george_cafe/Louis George Cafe Bold.ttf'
+    #opciones
     BgCanvas:
         canvas:
             Rectangle:

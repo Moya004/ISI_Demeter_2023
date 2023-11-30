@@ -8,12 +8,15 @@ from manageBD import LogIn
 
 class LogInLayout(FloatLayout):
     def login_click(self, cc: str, pas: str) -> None:
-        if LogIn().Log(cc, pas):
+        log = LogIn().Log(cc, pas)
+        if log is not None:
+            file = open('userinfo.config', 'w')
+            file.write(f'{log.id};{log.mail};{log.full_name}')
+            file.close()
             self.ids.LabelCredenciales.color = 1, 1, 1
             self.parent.parent.push("SecondScreen")
         else:
             self.ids.LabelCredenciales.color = 1, 0, 0
-
 
 
 class BackgroundColor(Widget):

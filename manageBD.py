@@ -1,5 +1,5 @@
 import psycopg2 as pg
-# from psycopg2 import Connection
+from models import *
 
 
 class Connection:
@@ -34,19 +34,19 @@ class LogIn(Connection):
     def __init__(self) -> None:
         super().__init__()
 
-    def Log(self, ident: str, contrasena: str) -> bool:
+    def Log(self, ident: str, contrasena: str) -> Agricultor:
         cursor = self._connect.cursor()
         try:
-            cursor.execute("SELECT CLAVE FROM Agricultor WHERE Agricultor.AG_ID = %s", (ident,))
+            cursor.execute("SELECT * FROM Agricultor WHERE Agricultor.AG_ID = %s", (ident,))
             result = cursor.fetchone()
             try:
-                if contrasena == result[0]:
-                    return True
+                if contrasena == result[2]:
+                    return Agricultor(result[0], result[1], result[3] + ' ' + result[4])
             except TypeError as tp:
-                return False
+                return None
 
         except Exception as ex:
             print(ex)
         finally:
             self.close()
-        return False
+        return None

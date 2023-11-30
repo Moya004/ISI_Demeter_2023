@@ -6,6 +6,7 @@ from kivy.uix.widget import Widget
 
 
 class ContentScreen(Screen):
+
     def __init__(self, content_widgets=None, **kwargs):
         super(ContentScreen, self).__init__(**kwargs)
 
@@ -13,6 +14,7 @@ class ContentScreen(Screen):
         if content_widgets:
             for widget in content_widgets:
                 self.add_widget(widget)
+
 
 class MainLayout(BoxLayout):
     def switch_content(self, tab_name):

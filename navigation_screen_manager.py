@@ -3,6 +3,7 @@ from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.label import Label
 from kivy.uix.screenmanager import ScreenManager, Screen
 
+
 class NavigationScreenManager(ScreenManager):
 
     screens_stack = []
