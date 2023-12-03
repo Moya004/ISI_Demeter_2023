@@ -7,6 +7,16 @@
         size_hint: 1, 1
         pos_hint: {'right': 1, 'y': 0}
 
+    Label:
+        id: id_profile
+        text: 'ID: ' + root.parent.__str__()
+        #rgba(166, 166, 166, 1)'
+        pos_hint: {'center_x': .5, 'y': .68}
+        size_hint: None, None
+        color: 0, 0, 0, 1
+        font_size: 21
+        font_name: 'font/louis_george_cafe/Louis George Cafe Bold.ttf'
+
 
     BgCanvas:
         canvas:
@@ -14,35 +24,64 @@
                 pos: self.width * 0.05, self.height * 0.47
                 size: self.width * 0.9, self.height * 0.25
 
-    Label:
+    #este muestra tu nombre completo como usuario
+
+    TextInput:
         id: name_profile
-        text: 'Nombre completo: ' + root.parent.__str__()
-        #rgba(166, 166, 166, 1)'
-        pos_hint: {'x': .17, 'y': .62}
+        text: root.parent.__str__()
+        foreground_color: 84/255, 84/255, 84/255, 1
+        readonly: True  # Esta propiedad desactiva la edición del TextInput
+        pos_hint: {'x': .1, 'y': .6}
         size_hint: None, None
-        color: 0, 0, 0, 1
+        size: '350dp', '31dp'
         font_size: 17
         font_name: 'font/louis_george_cafe/Louis George Cafe Bold.ttf'
+        background_normal: 'imagenes_Demeter/Elements-Various/TextInput-BorderGray.png'
+        background_active: 'imagenes_Demeter/Elements-Various/TextInput-BorderGray.png'
+        background_disabled: True  # Desactiva el fondo interactivo
+        multiline: False  # Desactiva la interacción táctil
+        on_touch_down: self.focus = False
+        cursor_blink: False #Desactiva el parpadeo del cursor
+        cursor_color: 0, 0, 0, 0 #lo vuelve con cero de opacidad de color blanco
 
     Label:
-        id: id_profile
-        text: 'ID: ' + root.parent.__str__()
-        #rgba(166, 166, 166, 1)'
-        pos_hint: {'x': .13, 'y': .60}
+
+        text: 'Nombre Apellidos'
+        pos_hint: {'x': .14, 'y': .6}
         size_hint: None, None
         color: 0, 0, 0, 1
-        font_size: 17
+        font_size: 20
         font_name: 'font/louis_george_cafe/Louis George Cafe Bold.ttf'
 
-    Label:
+    #Este es el que muestra tu correo como usuario
+
+    TextInput:
         id: mail_profile
-        text: 'Correo: ' + root.parent.__str__()
-        #rgba(166, 166, 166, 1)'
-        pos_hint: {'x': .13, 'y': .58}
+        text: root.parent.__str__()
+        foreground_color: 84/255, 84/255, 84/255, 1
+        readonly: True  # Esta propiedad desactiva la edición del TextInput
+        pos_hint: {'x': .1, 'y': .49}
         size_hint: None, None
-        color: 0, 0, 0, 1
+        size: '350dp', '31dp'
         font_size: 17
         font_name: 'font/louis_george_cafe/Louis George Cafe Bold.ttf'
+        background_normal: 'imagenes_Demeter/Elements-Various/TextInput-BorderGray.png'
+        background_active: 'imagenes_Demeter/Elements-Various/TextInput-BorderGray.png'
+        background_disabled: True  # Desactiva el fondo interactivo
+        multiline: False  # Desactiva la interacción táctil
+        on_touch_down: self.focus = False
+        cursor_blink: False #Desactiva el parpadeo del cursor
+        cursor_color: 0, 0, 0, 0 #lo vuelve con cero de opacidad de color blanco
+
+    Label:
+        text: 'Correo'
+        pos_hint: {'x': .08, 'y': .49}
+        size_hint: None, None
+        color: 0, 0, 0, 1
+        font_size: 20
+        font_name: 'font/louis_george_cafe/Louis George Cafe Bold.ttf'
+
+
     #opciones
     BgCanvas:
         canvas:
@@ -52,9 +91,10 @@
 
 
     Label:
-        text: 'AJUSTES'
+        text: '[b]AJUSTES[/b]'
+        markup: True
         #rgba(166, 166, 166, 1)'
-        pos_hint: {'x': .07, 'y': .27}
+        pos_hint: {'x': .07, 'y': .31}
         size_hint: None, None
         color: 166/255, 166/255, 166/255, 1
         font_size: 17
@@ -64,7 +104,7 @@
         id: Reset_profile
         text: 'Cambiar contraseña'
         #rgba(166, 166, 166, 1)'
-        pos_hint: {'x': .13, 'y': .23}
+        pos_hint: {'x': .13, 'y': .265}
         size_hint: None, None
         color: 0, 0, 0, 1
         font_size: 17
@@ -75,7 +115,7 @@
     Label:
         text: 'Borrar Caché'
         #rgba(166, 166, 166, 1)'
-        pos_hint: {'x': .09, 'y': .19}
+        pos_hint: {'x': .09, 'y': .22 }
         size_hint: None, None
         color: 0, 0, 0, 1
         font_size: 17
@@ -83,9 +123,10 @@
 
 
     Label:
-        text: 'INFORMACION'
+        text: '[b]INFORMACION[/b]'
+        markup: True
         #rgba(166, 166, 166, 1)'
-        pos_hint: {'x': .1, 'y': .14}
+        pos_hint: {'x': .1, 'y': .15}
         size_hint: None, None
         color: 166/255, 166/255, 166/255, 1
         font_size: 17
@@ -112,6 +153,7 @@
         on_touch_up: root.parent.parent.parent.handle_touch('version-view', 'Version', *args) if self.collide_point(*args[1].pos) else None
 
     Label:
+        id: 'cerrarsesion'
         text: 'Cerrar sesion'
         #rgba(255, 49, 49, 1)
         pos_hint: {'x': .09, 'y': .005}
@@ -119,3 +161,5 @@
         color: 255/255, 49/255, 49/255, 1
         font_size: 17
         font_name: 'font/louis_george_cafe/Louis George Cafe Bold.ttf'
+        on_touch_up: app.root.pop_to_label('login', 'cerrarsesion') if self.collide_point(*args[1].pos) else None
+

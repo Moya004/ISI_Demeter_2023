@@ -12,8 +12,8 @@ class ProfileScreen(Screen):
     pass
 
     def show(self) -> None:
-        self.ids.name_profile.text = f'Nombre: {App.get_running_app().usr.full_name}'
-        self.ids.mail_profile.text = f'Correo: {App.get_running_app().usr.mail}'
+        self.ids.name_profile.text = f'{App.get_running_app().usr.full_name}'
+        self.ids.mail_profile.text = f'{App.get_running_app().usr.mail}'
         self.ids.id_profile.text = f'ID: {App.get_running_app().usr.id}'
 
 
