@@ -1,0 +1,65 @@
+
+IdentifyScreen:
+
+<IdentifyScreen>:
+    BgLabel:
+        size_hint: 1, 1
+        pos_hint: {'x': 0, 'y': 0}
+
+    Image:
+        source: ''
+        pos_hint: {'center_x': .5 , 'y': .62}
+        size_hint: None, None
+        size: '200dp', '200dp'
+
+    Label:
+        text: 'VERIFICAR IDENTIDAD'
+        pos_hint: {'center_x': .5 , 'y': .48}
+        size_hint: None, None
+        size: '100dp', '150dp'
+        color: 0, 0, 0, 1
+        font_size: 21
+        font_name: 'font/louis_george_cafe/Louis George Cafe.ttf'
+
+    Label:
+        text: 'Identificacion'
+        pos_hint: {'center_x': .43, 'y': .43}
+        size_hint: None, None
+        size: '100dp', '100dp'
+        color: 0, 0, 0, 1
+        font_size: 17
+        font_name: 'font/louis_george_cafe/Louis George Cafe.ttf'
+
+    TextInput:
+        id: verifyuser
+        hint_text: "Ingrese usuario"
+        pos_hint: {'center_x': .5, 'y': .44}
+        size_hint: None, None
+        size: '250dp', '30dp'
+        multiline: False
+        password: True
+        background_normal: 'imagenes_Demeter/Elements-Various/TextInput-Border.png'
+        background_active: 'imagenes_Demeter/Elements-Various/TextInput-Border.png'
+        font_name: 'font/louis_george_cafe/Louis George Cafe.ttf'
+
+    Button:
+        text: 'Verificar'
+        pos_hint: {'center_x': .5, 'y': .05}
+        size_hint: None, None
+        size: '200dp', '30dp'
+        background_normal: ''
+        background_down: ''
+        background_color: 118/255.0, 163/255.0, 79/255.0, 1
+        font_name: 'font/louis_george_cafe/Louis George Cafe Bold.ttf'
+        on_release: root.parent.parent.push("Reset")
+
+<BackgroundColor>:
+    background_color: 1, 1, 1, 1
+    canvas.before:
+        Color:
+            rgba: root.background_color
+        Rectangle:
+            size: self.size
+            pos: self.pos
+
+<BgLabel>
