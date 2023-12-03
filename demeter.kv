@@ -1,9 +1,10 @@
 #asi es como se importa otros archivos .py
 
 #:import navigation_screen_manager navigation_screen_manager
-#:import view_LogInLayout view_LogInLayout
-#:import view_ResetPassword view_ResetPassword
-#:import view_CorrectReset view_CorrectReset
+#:import LogInLayout LogInLayout
+#:import ResetPassword ResetPassword
+#:import CorrectReset CorrectReset
+#:import IdentifyScreen IdentifyScreen
 
 #:include SecondScreen.kv
 
@@ -17,6 +18,10 @@ Manager_Screens:
     Screen:
         name: "login"
         LogInLayout:
+
+    Screen:
+        name: "Identify"
+        IdentifyScreen:
 
     Screen:
         name: "Reset"
