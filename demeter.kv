@@ -4,8 +4,8 @@
 #:import view_LogInLayout view_LogInLayout
 #:import view_ResetPassword view_ResetPassword
 #:import view_CorrectReset view_CorrectReset
-#:import view_Home view_Home
-#:import Menu_BarAux Menu_BarAux
+
+#:include SecondScreen.kv
 
 Manager_Screens:
 
@@ -26,6 +26,5 @@ Manager_Screens:
         name: "Correct_reset"
         CorrectResetScreen:
 
-    Screen:
+    SecondScreen:
         name: 'SecondScreen'
-        MainLayout:

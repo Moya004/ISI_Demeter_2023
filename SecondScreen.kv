@@ -1,53 +1,52 @@
 #:import Menu_BarAux Menu_BarAux
-#:import view_Home view_Home
 #:import view_AlertScreen view_AlertScreen
 #:import view_AlertsMore view_AlertsMore
 #:import view_GraphicScreen view_GraphicScreen
 #:import view_AnalysisScreen view_AnalysisScreen
 #:import view_SearchScreen view_SearchScreen
-#:import view_ProfileScreen view_ProfileScreen
+
 #:import view_VersionScreen view_VersionScreen
 
-<MainLayout>:
+<SecondScreen>:
+    BoxLayout:
+        orientation: 'horizontal'
 
-    orientation: 'horizontal'
+        MenuBar:
+            size_hint: None, 1
+            size: '70dp' , '0dp'
 
-    MenuBar:
-        size_hint: None, 1
-        size: '70dp' , '0dp'
+        ScreenManager:
 
-    ScreenManager:
+            id: content_manager
+            name: 'manager'
 
-        id: content_manager
-
-        ContentScreen:
-            name: 'Home'
             HomeScreen:
+                name: 'Home'
 
-        ContentScreen:
-            name: 'Alerts'
-            AlertScreen:
+            Screen:
+                name: 'Alerts'
+                AlertScreen:
 
-        ContentScreen:
-            name: 'AlertsMore'
-            AlertMoreScreen:
+            Screen:
+                name: 'AlertsMore'
+                AlertMoreScreen:
 
-        ContentScreen:
-            name: 'Analysis'
-            AnalysisScreen:
+            Screen:
+                name: 'Analysis'
+                AnalysisScreen:
 
-        ContentScreen:
-            name: 'Statistics'
-            GraphicScreen:
+            Screen:
+                name: 'Statistics'
+                GraphicScreen:
 
-        ContentScreen:
-            name: 'Search'
-            SearchScreen:
+            Screen:
+                name: 'Search'
+                SearchScreen:
 
-        ContentScreen:
-            name: 'Profile'
             ProfileScreen:
+                name: 'Profile'
+                on_pre_enter: self.show()
 
-        ContentScreen:
-            name: 'Version'
-            VersionScreen:
+            Screen:
+                name: 'Version'
+                VersionScreen:

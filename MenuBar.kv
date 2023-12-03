@@ -20,7 +20,7 @@
                 background_normal: 'imagenes_Demeter/icons-white/home.png'
                 background_down: 'imagenes_Demeter/icons-green/icons-color/home1.png'
                 size_hint_y: None
-                on_press: root.parent.switch_content("Home")
+                on_press: root.parent.parent.switch_content("Home")
 
             Button:
                 id: AlertsIcon
@@ -29,7 +29,7 @@
                 background_normal: 'imagenes_Demeter/icons-white/4.png'
                 background_down: 'imagenes_Demeter/icons-green/icons-color/alert.png'
                 size_hint_y: None
-                on_press: root.parent.switch_content("Alerts")
+                on_press: root.parent.parent.switch_content("Alerts")
 
             Button:
                 id: SearchIcon
@@ -38,7 +38,7 @@
                 background_normal: 'imagenes_Demeter/icons-white/search.png'
                 background_down: 'imagenes_Demeter/icons-green/icons-color/search.png'
                 size_hint_y: None
-                on_press: root.parent.switch_content("Analysis")
+                on_press: root.parent.parent.switch_content("Analysis")
 
 
             Button:
@@ -48,7 +48,7 @@
                 background_normal: 'imagenes_Demeter/icons-white/graphic.png'
                 background_down: 'imagenes_Demeter/icons-green/icons-color/Graphic.png'
                 size_hint_y: None
-                on_press: root.parent.switch_content("Statistics")
+                on_press: root.parent.parent.switch_content("Statistics")
 
             Button:
                 id: CropIcon
@@ -57,7 +57,7 @@
                 background_normal: 'imagenes_Demeter/icons-white/crop.png'
                 background_down: 'imagenes_Demeter/icons-green/icons-color/crop.png'
                 size_hint_y: None
-                on_press: root.parent.switch_content("Search")
+                on_press: root.parent.parent.switch_content("Search")
 
             Button:
                 id: ProfileIcon
@@ -66,7 +66,7 @@
                 background_normal: 'imagenes_Demeter/icons-white/profile.png'
                 background_down: 'imagenes_Demeter/icons-green/icons-color/profile.png'
                 size_hint_y: None
-                on_press: root.parent.switch_content("Profile")
+                on_press: root.parent.parent.switch_content("Profile")
 
         Image:
             source: 'imagenes_Demeter/icons-white/Logo-White.png'
@@ -74,4 +74,3 @@
             height: '60dp'
             pos_hint: {'center_x': 0.5, 'y': .5}
             x: '-12.2dp'
-

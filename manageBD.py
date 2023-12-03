@@ -1,3 +1,5 @@
+from datetime import datetime as dt
+from os import stat
 import psycopg2 as pg
 from models import *
 
@@ -34,7 +36,7 @@ class LogIn(Connection):
     def __init__(self) -> None:
         super().__init__()
 
-    def Log(self, ident: str, contrasena: str) -> Agricultor:
+    def log(self, ident: str, contrasena: str) -> Agricultor:
         cursor = self._connect.cursor()
         try:
             cursor.execute("SELECT * FROM Agricultor WHERE Agricultor.AG_ID = %s", (ident,))
@@ -50,3 +52,99 @@ class LogIn(Connection):
         finally:
             self.close()
         return None
+
+
+class CropState(Connection):
+    def __init__(self) -> None:
+        super().__init__()
+
+    def load_crops(self) -> None:
+        cursor = self._connect.cursor()
+        cursor.execute("SELECT * FROM CULTIVO")
+        result = cursor.fetchall()
+        file = open('crops.data', 'w')
+        for i in result:
+            file.write(f'{i[0]};{i[1]};{i[2]};{i[3]};{i[4]};{i[5]};{i[6]};{i[7]}\n')
+        file.close()
+        self.close()
+        return None
+
+
+class Statistic(Connection):
+    lastRegister: dt = None
+    lastAlert: dt = None
+
+    def __init__(self) -> None:
+        super().__init__()
+        return
+
+    def stats(self, usr: Agricultor) -> None:
+        conn = self._connect.cursor()
+        result = []
+
+        if self.lastRegister is None:
+            try:
+                conn.execute("SELECT * FROM Estado WHERE Estado.AG_ID = %s ORDER BY fecha ASC, hora ASC", (usr.id,))
+                result = conn.fetchall()
+
+            except Exception as ex:
+                print(ex)
+            finally:
+                self.close()
+        else:
+            try:
+                conn.execute(
+                    "SELECT * FROM Estado WHERE Estado.AG_ID = %s AND Estado.Fecha >= %s AND Estado.Hora > %s ORDER "
+                    "BY fecha ASC, hora ASC",
+                    (usr.id, self.lastRegister.date(), self.lastRegister.time()))
+                result = conn.fetchall()
+
+            except Exception as ex:
+                print(ex)
+            finally:
+                self.close()
+        if len(result) == 0:
+            return
+        self.lastRegister = dt(year=result[-1][2].year, month=result[-1][2].month, day=result[-1][2].day,
+                               hour=result[-1][3].hour, minute=result[-1][3].minute, second=result[-1][3].second,
+                               microsecond=result[-1][3].microsecond)
+
+
+        return
+
+    def search_alerts(self, usr: Agricultor) -> None:
+        conn = self._connect.cursor()
+        result = []
+        file = None
+        if self.lastAlert is None:
+            try:
+                conn.execute("SELECT E.AG_ID, E.CUL_ID, E.FECHA, E.HORA, E.PH, E.TEMPE, E.HUM FROM Estado E JOIN "
+                             "Cultivo C ON E.CUL_ID = C.CUL_ID WHERE (E.PH < C.PH_MIN OR "
+                             "E.PH > C.PH_MAX) OR (E.TEMPE < C.TEMPE_MIN OR E.TEMPE > C.TEMPE_MAX) OR (E.HUM < "
+                             "C.HUM_MIN OR E.HUM > C.HUM_MAX) AND E.AG_ID = %s", (usr.id,))
+                result = conn.fetchall()
+                file = open('alerts.data', 'w')
+            except Exception as ex:
+                print(ex)
+            finally:
+                self.close()
+        else:
+            try:
+                conn.execute(
+                    "SELECT * FROM Estado WHERE Estado.AG_ID = %s AND Estado.Fecha >= %s AND Estado.Hora > %s ORDER "
+                    "BY fecha ASC, hora ASC",
+                    (usr.id, self.lastAlert.date(), self.lastAlert.time()))
+                result = conn.fetchall()
+                file = open('alerts.data', 'a')
+            except Exception as ex:
+                print(ex)
+            finally:
+                self.close()
+        if len(result) == 0:
+            return
+        self.lastRegister = dt(year=result[-1][2].year, month=result[-1][2].month, day=result[-1][2].day,
+                               hour=result[-1][3].hour, minute=result[-1][3].minute, second=result[-1][3].second,
+                               microsecond=result[-1][3].microsecond)
+
+
+        return

@@ -3,6 +3,7 @@ from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.label import Label
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.uix.widget import Widget
+import ProfileScreen, view_AlertScreen, HomeScreen, view_SearchScreen, view_AnalysisScreen, view_GraphicScreen, view_VersionScreen, view_AlertsMore
 
 
 class ContentScreen(Screen):
@@ -16,7 +17,7 @@ class ContentScreen(Screen):
                 self.add_widget(widget)
 
 
-class MainLayout(BoxLayout):
+class SecondScreen(Screen):
     def switch_content(self, tab_name):
         # Cambiar al contenido de la pestaña especificada
         self.ids.content_manager.current = tab_name
@@ -24,6 +25,8 @@ class MainLayout(BoxLayout):
     def handle_touch(self, label_name, tab_name, *args):
         #cambiar el contenido de al presionar un label
         self.ids.content_manager.current = tab_name
+
+
 
 class MenuBar(BoxLayout):
     pass

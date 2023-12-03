@@ -4,8 +4,10 @@ from kivy.uix.label import Label
 from kivy.uix.screenmanager import Screen
 from kivy.uix.widget import Widget
 
-class HomeScreen(FloatLayout):
+
+class HomeScreen(Screen):
     pass
+
 
 class BackgroundColor(Widget):
     pass
