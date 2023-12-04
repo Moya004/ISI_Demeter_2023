@@ -40,5 +40,5 @@ class BgLabel(Label, BackgroundColor):
     pass
 
 
-Builder.load_file('SecondScreen.kv')
-Builder.load_file('MenuBar.kv')
+Builder.load_file('secondscreen.kv')
+Builder.load_file('menubar.kv')

@@ -16,4 +16,4 @@ class BgLabel(Label, BackgroundColor):
     pass
 
 
-Builder.load_file('IdentifyScreen.kv')
+Builder.load_file('identifyscreen.kv')

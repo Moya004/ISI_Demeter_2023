@@ -15,4 +15,4 @@ class BgLabel(Label, BackgroundColor):
 class BgCanvas(Widget):
     pass
 
-Builder.load_file('SearchSreen.kv')
+Builder.load_file('searchscreen.kv')

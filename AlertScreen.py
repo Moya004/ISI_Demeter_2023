@@ -22,4 +22,4 @@ class DropDown_Year(BoxLayout):
 class DropDown_Mes(BoxLayout):
     pass
 
-Builder.load_file('AlertsScreen.kv')
+Builder.load_file('alertsscreen.kv')

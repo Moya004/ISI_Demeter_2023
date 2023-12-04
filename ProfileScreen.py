@@ -29,4 +29,4 @@ class BgCanvas(Widget):
     pass
 
 
-Builder.load_file('ProfileScreen.kv')
+Builder.load_file('profilescreen.kv')

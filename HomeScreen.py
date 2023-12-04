@@ -20,4 +20,4 @@ class BgCanvas(Widget):
     pass
 
 
-Builder.load_file('HomeScreen.kv')
+Builder.load_file('homescreen.kv')

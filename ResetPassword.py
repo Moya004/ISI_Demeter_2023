@@ -16,4 +16,4 @@ class BgLabel(Label, BackgroundColor):
     pass
 
 
-Builder.load_file('ResetScreen.kv')
+Builder.load_file('resetsrcreen.kv')

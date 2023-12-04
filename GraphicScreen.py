@@ -26,4 +26,4 @@ class DropDown_Year2(BoxLayout):
 class DropDown_Mes2(BoxLayout):
     pass
 
-Builder.load_file('GraphicScreen.kv')
+Builder.load_file('graphicscreen.kv')

@@ -10,4 +10,4 @@ class BackgroundColor(Widget):
 class BgLabel(Label, BackgroundColor):
     pass
 
-Builder.load_file('Correct_ResetScreen.kv')
+Builder.load_file('correct_resetscreen.kv')
