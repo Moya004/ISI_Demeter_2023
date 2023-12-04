@@ -1,10 +1,11 @@
 from kivy.lang import Builder
 from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.label import Label
+from kivy.uix.screenmanager import Screen
 from kivy.uix.widget import Widget
 
 
-class AnalysisScreen(FloatLayout):
+class AnalysisScreen(Screen):
     pass
 
 class BackgroundColor(Widget):

@@ -10,9 +10,9 @@ from models import *
 class LogInLayout(FloatLayout):
     def login_click(self, cc: str, pas: str) -> None:
         log = App.get_running_app().loginManager.log(cc, pas)
-        data = App.get_running_app().statsManager.stats() if log else None
-        alert = App.get_running_app().statsManager.search_alerts() if log else None
-        cul = App.get_running_app().cropsManager.load_usr_crops() if log else None
+        data = App.get_running_app().statsManager.stats(log) if log else None
+        alert = App.get_running_app().statsManager.search_alerts(log) if log else None
+        cul = App.get_running_app().cropsManager.load_usr_crops(log) if log else None
         if log is not None:
             App.get_running_app().usr = log
             App.get_running_app().crops = cul

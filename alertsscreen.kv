@@ -3,254 +3,254 @@
 #:import Menu_BarAux Menu_BarAux
 
 <AlertScreen>:
-
-    BgLabel:
-        background_color: 244/255, 244/255, 244/255, 1
-        #provisonal mientras ubico los canvas blancos
-        #background_color: 226/255, 226/255, 133/255, 1
-        size_hint: 1, 1
-        pos_hint: {'right': 1, 'y': 0}
-
-
-    Label:
-        text: 'ALERTAS'
-        pos_hint: {'x': .04, 'y': .87}
-        size_hint: None, None
-        color: 0, 0, 0, 1
-        font_size: 17
-        font_name: 'font/louis_george_cafe/Louis George Cafe.ttf'
-
-#Donde va el conteo e informacion general
-
-    BgCanvas:
-        canvas:
-            Rectangle:
-                pos: self.width * 0.05, self.height * 0.695
-                size: self.width * 0.9, self.height * 0.22
+    FloatLayout:
+        BgLabel:
+            background_color: 244/255, 244/255, 244/255, 1
+            #provisonal mientras ubico los canvas blancos
+            #background_color: 226/255, 226/255, 133/255, 1
+            size_hint: 1, 1
+            pos_hint: {'right': 1, 'y': 0}
 
 
-    Label:
-        text: 'NUMERO DE ALERTAS'
-        pos_hint: {'x': .25 , 'y': .8}
-        size_hint: None, None
-        color: 0, 0, 0, 1
-        font_size: 15
-        font_name: 'font/louis_george_cafe/Louis George Cafe.ttf'
+        Label:
+            text: 'ALERTAS'
+            pos_hint: {'x': .04, 'y': .87}
+            size_hint: None, None
+            color: 0, 0, 0, 1
+            font_size: 17
+            font_name: 'font/louis_george_cafe/Louis George Cafe.ttf'
+
+    #Donde va el conteo e informacion general
+
+        BgCanvas:
+            canvas:
+                Rectangle:
+                    pos: self.width * 0.05, self.height * 0.695
+                    size: self.width * 0.9, self.height * 0.22
 
 
-    Label:
-    #esto lo debes hacer tu ya que es concetandola a la base de datos y la informacion se debe ccolocar en el label creo
-        text: '00'
-        pos_hint: {'x': .25 , 'y': .7}
-        size_hint: None, None
-        color: 0, 0, 0, 1
-        font_size: 70
-        font_name: 'font/louis_george_cafe/Louis George Cafe.ttf'
+        Label:
+            text: 'NUMERO DE ALERTAS'
+            pos_hint: {'x': .25 , 'y': .8}
+            size_hint: None, None
+            color: 0, 0, 0, 1
+            font_size: 15
+            font_name: 'font/louis_george_cafe/Louis George Cafe.ttf'
 
 
-    Label:
-        text: 'ULTIMA ALERTA'
-        pos_hint: {'x': .6 , 'y': .8}
-        size_hint: None, None
-        color: 0, 0, 0, 1
-        font_size: 15
-        font_name: 'font/louis_george_cafe/Louis George Cafe.ttf'
+        Label:
+        #esto lo debes hacer tu ya que es concetandola a la base de datos y la informacion se debe ccolocar en el label creo
+            text: '00'
+            pos_hint: {'x': .25 , 'y': .7}
+            size_hint: None, None
+            color: 0, 0, 0, 1
+            font_size: 70
+            font_name: 'font/louis_george_cafe/Louis George Cafe.ttf'
 
 
-    BgCanvas:
-        canvas:
-            Color:
-                #rgba(255, 226, 133, 1)
-                rgba: 255/255, 226/255, 133/255, 1
-            RoundedRectangle:
-                pos: self.width * 0.65, self.height * 0.8
-                size: 155 , 30
-                radius: [15, 15, 15, 15]  # Radios de las esquinas
+        Label:
+            text: 'ULTIMA ALERTA'
+            pos_hint: {'x': .6 , 'y': .8}
+            size_hint: None, None
+            color: 0, 0, 0, 1
+            font_size: 15
+            font_name: 'font/louis_george_cafe/Louis George Cafe.ttf'
 
 
-    Label:
-        text: 'Fecha'
-        pos_hint: {'x': .48 , 'y': .75}
-        size_hint: None, None
-        color: 0, 0, 0, 1
-        font_size: 17
-        font_name: 'font/louis_george_cafe/Louis George Cafe.ttf'
+        BgCanvas:
+            canvas:
+                Color:
+                    #rgba(255, 226, 133, 1)
+                    rgba: 255/255, 226/255, 133/255, 1
+                RoundedRectangle:
+                    pos: self.width * 0.65, self.height * 0.8
+                    size: 155 , 30
+                    radius: [15, 15, 15, 15]  # Radios de las esquinas
 
 
-    Label:
-    #esto lo debes hacer tu ya que es concetandola a la base de datos
-        text: '00/00/0000'
-        pos_hint: {'x': .69 , 'y': .745}
-        size_hint: None, None
-        color: 0, 0, 0, 1
-        font_size: 17
-        font_name: 'font/louis_george_cafe/Louis George Cafe.ttf'
+        Label:
+            text: 'Fecha'
+            pos_hint: {'x': .48 , 'y': .75}
+            size_hint: None, None
+            color: 0, 0, 0, 1
+            font_size: 17
+            font_name: 'font/louis_george_cafe/Louis George Cafe.ttf'
 
 
-    BgCanvas:
-        canvas:
-            Color:
-                #rgba(255, 226, 133, 1)
-                rgba: 255/255, 226/255, 133/255, 1
-            RoundedRectangle:
-                pos: self.width * 0.65, self.height * 0.73
-                size: 155 , 30
-                radius: [15, 15, 15, 15]  # Radios de las esquinas
+        Label:
+        #esto lo debes hacer tu ya que es concetandola a la base de datos
+            text: '00/00/0000'
+            pos_hint: {'x': .69 , 'y': .745}
+            size_hint: None, None
+            color: 0, 0, 0, 1
+            font_size: 17
+            font_name: 'font/louis_george_cafe/Louis George Cafe.ttf'
 
 
-    Label:
-        text: 'Hora'
-        pos_hint: {'x': .48 , 'y': .675}
-        size_hint: None, None
-        color: 0, 0, 0, 1
-        font_size: 17
-        font_name: 'font/louis_george_cafe/Louis George Cafe.ttf'
+        BgCanvas:
+            canvas:
+                Color:
+                    #rgba(255, 226, 133, 1)
+                    rgba: 255/255, 226/255, 133/255, 1
+                RoundedRectangle:
+                    pos: self.width * 0.65, self.height * 0.73
+                    size: 155 , 30
+                    radius: [15, 15, 15, 15]  # Radios de las esquinas
 
 
-    Label:
-    #esto lo debes hacer tu ya que es concetandola a la base de datos y la informacion se debe ccolocar en el label creo
-        text: '00:00 am'
-        pos_hint: {'x': .69 , 'y': .675}
-        size_hint: None, None
-        color: 0, 0, 0, 1
-        font_size: 17
-        font_name: 'font/louis_george_cafe/Louis George Cafe.ttf'
-
-#La parte donde estan los detalles de alerta
-    BgCanvas:
-        canvas:
-            Rectangle:
-                pos: self.width * 0.05, self.height * 0.62
-                size: self.width * 0.9, self.height * 0.064
+        Label:
+            text: 'Hora'
+            pos_hint: {'x': .48 , 'y': .675}
+            size_hint: None, None
+            color: 0, 0, 0, 1
+            font_size: 17
+            font_name: 'font/louis_george_cafe/Louis George Cafe.ttf'
 
 
-    Label:
-        text: 'DETALLES DE ALERTAS'
-        pos_hint: {'x': .15 , 'y': .57}
-        size_hint: None, None
-        color: 0, 0, 0, 1
-        font_size: 15
-        font_name: 'font/louis_george_cafe/Louis George Cafe.ttf'
+        Label:
+        #esto lo debes hacer tu ya que es concetandola a la base de datos y la informacion se debe ccolocar en el label creo
+            text: '00:00 am'
+            pos_hint: {'x': .69 , 'y': .675}
+            size_hint: None, None
+            color: 0, 0, 0, 1
+            font_size: 17
+            font_name: 'font/louis_george_cafe/Louis George Cafe.ttf'
+
+    #La parte donde estan los detalles de alerta
+        BgCanvas:
+            canvas:
+                Rectangle:
+                    pos: self.width * 0.05, self.height * 0.62
+                    size: self.width * 0.9, self.height * 0.064
 
 
-    Label:
-        id: 'label_more'
-        text: 'Mostrar Más'
-        pos_hint: {'x': .76 , 'y': .57}
-        size_hint: None, None
-        color: 90/255, 139/255, 48/255, 1
-        #Defini la fuente y el tamaño de la misma
-        font_size: 12
-        font_name: 'font/louis_george_cafe/Louis George Cafe Bold.ttf'
-        on_touch_up: root.parent.parent.parent.handle_touch('label_more', 'AlertsMore', *args) if self.collide_point(*args[1].pos) else None
+        Label:
+            text: 'DETALLES DE ALERTAS'
+            pos_hint: {'x': .15 , 'y': .57}
+            size_hint: None, None
+            color: 0, 0, 0, 1
+            font_size: 15
+            font_name: 'font/louis_george_cafe/Louis George Cafe.ttf'
 
 
-#Donde van los menus desplegables y muestra fechas y horas
-    #Esta es la parte que rige lo que se mostrar en el canvas de fondo de los elementos
-    BgCanvas:
-        canvas:
-            Rectangle:
-                pos: self.width * 0.05, self.height * 0.35
-                size: self.width * 0.9, self.height * 0.26
+        Label:
+            id: 'label_more'
+            text: 'Mostrar Más'
+            pos_hint: {'x': .76 , 'y': .57}
+            size_hint: None, None
+            color: 90/255, 139/255, 48/255, 1
+            #Defini la fuente y el tamaño de la misma
+            font_size: 12
+            font_name: 'font/louis_george_cafe/Louis George Cafe Bold.ttf'
+            on_touch_up: root.parent.parent.parent.handle_touch('label_more', 'AlertsMore', *args) if self.collide_point(*args[1].pos) else None
 
 
-    Label:
-        text: 'Mes'
-        pos_hint: {'x': .06 , 'y': .45}
-        size_hint: None, None
-        color: 0, 0, 0, 1
-        font_size: 18
-        font_name: 'font/louis_george_cafe/Louis George Cafe.ttf'
-
-    DropDown_Mes:
-
-    Label:
-        text: 'Año'
-        pos_hint: {'x': .06 , 'y': .4}
-        size_hint: None, None
-        color: 0, 0, 0, 1
-        font_size: 18
-        font_name: 'font/louis_george_cafe/Louis George Cafe.ttf'
-
-    DropDown_Year:
+    #Donde van los menus desplegables y muestra fechas y horas
+        #Esta es la parte que rige lo que se mostrar en el canvas de fondo de los elementos
+        BgCanvas:
+            canvas:
+                Rectangle:
+                    pos: self.width * 0.05, self.height * 0.35
+                    size: self.width * 0.9, self.height * 0.26
 
 
-    BgCanvas:
-        canvas:
-            Color:
-                #rgba(255, 226, 133, 1)
-                rgba: 255/255, 226/255, 133/255, 1
-            RoundedRectangle:
-                pos: self.width * 0.7, self.height * 0.365
-                size: self.width * 0.2, self.height * 0.05
-                radius: [15, 15, 15, 15]  # Radios de las esquinas
+        Label:
+            text: 'Mes'
+            pos_hint: {'x': .06 , 'y': .45}
+            size_hint: None, None
+            color: 0, 0, 0, 1
+            font_size: 18
+            font_name: 'font/louis_george_cafe/Louis George Cafe.ttf'
+
+        DropDown_Mes:
+
+        Label:
+            text: 'Año'
+            pos_hint: {'x': .06 , 'y': .4}
+            size_hint: None, None
+            color: 0, 0, 0, 1
+            font_size: 18
+            font_name: 'font/louis_george_cafe/Louis George Cafe.ttf'
+
+        DropDown_Year:
 
 
-    BgCanvas:
-        canvas:
-            Color:
-                #rgba(255, 226, 133, 1)
-                rgba: 255/255, 226/255, 133/255, 1
-            RoundedRectangle:
-                pos: self.width * 0.45, self.height * 0.365
-                size: self.width * 0.2, self.height * 0.05
-                radius: [15, 15, 15, 15]  # Radios de las esquinas
+        BgCanvas:
+            canvas:
+                Color:
+                    #rgba(255, 226, 133, 1)
+                    rgba: 255/255, 226/255, 133/255, 1
+                RoundedRectangle:
+                    pos: self.width * 0.7, self.height * 0.365
+                    size: self.width * 0.2, self.height * 0.05
+                    radius: [15, 15, 15, 15]  # Radios de las esquinas
 
 
-    Label:
-        text: 'Ultima modificacion'
-        pos_hint: {'x': .14 , 'y': .32}
-        size_hint: None, None
-        color: 0, 0, 0, 1
-        font_size: 18
-        font_name: 'font/louis_george_cafe/Louis George Cafe.ttf'
+        BgCanvas:
+            canvas:
+                Color:
+                    #rgba(255, 226, 133, 1)
+                    rgba: 255/255, 226/255, 133/255, 1
+                RoundedRectangle:
+                    pos: self.width * 0.45, self.height * 0.365
+                    size: self.width * 0.2, self.height * 0.05
+                    radius: [15, 15, 15, 15]  # Radios de las esquinas
 
 
-    Label:
-        text: 'Fecha'
-        pos_hint: {'x': .48 , 'y': .35}
-        size_hint: None, None
-        color: 0, 0, 0, 1
-        font_size: 17
-        font_name: 'font/louis_george_cafe/Louis George Cafe.ttf'
-
-    Label:
-    #esto lo debes hacer tu ya que es concetandola a la base de datos
-        text: '00/00/0000'
-        pos_hint: {'x': .48 , 'y': .31}
-        size_hint: None, None
-        color: 0, 0, 0, 1
-        font_size: 17
-        font_name: 'font/louis_george_cafe/Louis George Cafe.ttf'
+        Label:
+            text: 'Ultima modificacion'
+            pos_hint: {'x': .14 , 'y': .32}
+            size_hint: None, None
+            color: 0, 0, 0, 1
+            font_size: 18
+            font_name: 'font/louis_george_cafe/Louis George Cafe.ttf'
 
 
-    Label:
-        text: 'Hora'
-        pos_hint: {'x': .735 , 'y': .35}
-        size_hint: None, None
-        color: 0, 0, 0, 1
-        font_size: 17
-        font_name: 'font/louis_george_cafe/Louis George Cafe.ttf'
+        Label:
+            text: 'Fecha'
+            pos_hint: {'x': .48 , 'y': .35}
+            size_hint: None, None
+            color: 0, 0, 0, 1
+            font_size: 17
+            font_name: 'font/louis_george_cafe/Louis George Cafe.ttf'
 
-    Label:
-    #esto lo debes hacer tu ya que es concetandola a la base de datos
-        text: '00:00 am'
-        pos_hint: {'x': .735 , 'y': .31}
-        size_hint: None, None
-        color: 0, 0, 0, 1
-        font_size: 17
-        font_name: 'font/louis_george_cafe/Louis George Cafe.ttf'
-
-
-#El canvas de fondo que muestra las alertas del mes escogido
-    BgCanvas:
-        canvas:
-            Rectangle:
-                pos: self.width * 0.05, self.height * 0.05
-                size: self.width * 0.9, self.height * 0.285
+        Label:
+        #esto lo debes hacer tu ya que es concetandola a la base de datos
+            text: '00/00/0000'
+            pos_hint: {'x': .48 , 'y': .31}
+            size_hint: None, None
+            color: 0, 0, 0, 1
+            font_size: 17
+            font_name: 'font/louis_george_cafe/Louis George Cafe.ttf'
 
 
-#Menu desplegable para los meses le añadi una barra de desplazamiento al ser muchos
+        Label:
+            text: 'Hora'
+            pos_hint: {'x': .735 , 'y': .35}
+            size_hint: None, None
+            color: 0, 0, 0, 1
+            font_size: 17
+            font_name: 'font/louis_george_cafe/Louis George Cafe.ttf'
+
+        Label:
+        #esto lo debes hacer tu ya que es concetandola a la base de datos
+            text: '00:00 am'
+            pos_hint: {'x': .735 , 'y': .31}
+            size_hint: None, None
+            color: 0, 0, 0, 1
+            font_size: 17
+            font_name: 'font/louis_george_cafe/Louis George Cafe.ttf'
+
+
+    #El canvas de fondo que muestra las alertas del mes escogido
+        BgCanvas:
+            canvas:
+                Rectangle:
+                    pos: self.width * 0.05, self.height * 0.05
+                    size: self.width * 0.9, self.height * 0.285
+
+
+    #Menu desplegable para los meses le añadi una barra de desplazamiento al ser muchos
 
 
 <DropDown_Mes>:

@@ -1,10 +1,5 @@
 #:import Menu_BarAux Menu_BarAux
-#:import AlertScreen AlertScreen
-#:import AlertsMore AlertsMore
-#:import GraphicScreen GraphicScreen
-#:import AnalysisScreen AnalysisScreen
-#:import SearchScreen SearchScreen
-#:import VersionScreen VersionScreen
+
 
 <SecondScreen>:
     BoxLayout:
@@ -22,30 +17,29 @@
             HomeScreen:
                 name: 'Home'
 
-            Screen:
+            AlertScreen:
                 name: 'Alerts'
-                AlertScreen:
 
-            Screen:
+
+            AlertMoreScreen:
                 name: 'AlertsMore'
-                AlertMoreScreen:
 
-            Screen:
+
+            AnalysisScreen:
                 name: 'Analysis'
-                AnalysisScreen:
 
-            Screen:
+
+            GraphicScreen:
                 name: 'Statistics'
-                GraphicScreen:
 
-            Screen:
+
+            SearchScreen:
                 name: 'Search'
-                SearchScreen:
+
 
             ProfileScreen:
                 name: 'Profile'
                 on_pre_enter: self.show()
 
-            Screen:
+            VersionScreen:
                 name: 'Version'
-                VersionScreen:

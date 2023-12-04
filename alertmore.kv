@@ -1,25 +1,24 @@
-AlertMoreScreen:
-
 <AlertMoreScreen>:
-    BgLabel:
-        #background_color: 244/255, 244/255, 244/255, 1
-        #provisonal mientras ubico los canvas blancos
-        #background_color: 226/255, 226/255, 133/255, 1
+    FloatLayout:
+        BgLabel:
+            #background_color: 244/255, 244/255, 244/255, 1
+            #provisonal mientras ubico los canvas blancos
+            #background_color: 226/255, 226/255, 133/255, 1
 
-        size_hint: 1, 1
-        pos_hint: {'right': 1, 'y': 0}
+            size_hint: 1, 1
+            pos_hint: {'right': 1, 'y': 0}
 
-    Button:
-        # Usa una imagen como background del botón
-        background_normal: 'imagenes_Demeter/Elements-Various/flecha.png'
-        background_down: 'imagenes_Demeter/Elements-Various/flecha.png'
-        pos_hint: {'x': .9, 'y': .01}
-        size_hint: None, None
-        size: '70dp', '70dp'
-        on_press: root.parent.parent.parent.switch_content('Alerts')
+        Button:
+            # Usa una imagen como background del botón
+            background_normal: 'imagenes_Demeter/Elements-Various/flecha.png'
+            background_down: 'imagenes_Demeter/Elements-Various/flecha.png'
+            pos_hint: {'x': .9, 'y': .01}
+            size_hint: None, None
+            size: '70dp', '70dp'
+            on_press: root.parent.parent.parent.switch_content('Alerts')
 
-    DropDown_Mes3:
-    DropDown_Year3:
+        DropDown_Mes3:
+        DropDown_Year3:
 
 
 <DropDown_Mes3>:

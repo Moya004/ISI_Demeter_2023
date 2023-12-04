@@ -2,86 +2,84 @@
 #:set color 118/255, 163/255, 79/255, 1
 #:import Menu_BarAux Menu_BarAux
 
-GraphicScreen:
-
 <GraphicScreen>:
+    FloatLayout:
+        BgLabel:
+            background_color: 244/255, 244/255, 244/255, 1
+            #provisonal mientras ubico los canvas blancos
+            #background_color: 226/255, 226/255, 133/255, 1
 
-    BgLabel:
-        background_color: 244/255, 244/255, 244/255, 1
-        #provisonal mientras ubico los canvas blancos
-        #background_color: 226/255, 226/255, 133/255, 1
-
-        size_hint: 1, 1
-        pos_hint: {'right': 1, 'y': 0}
-
-
-    Label:
-        text: 'ESTADISTICAS'
-        pos_hint: {'x': .055, 'y': .87}
-        size_hint: None, None
-        color: 0, 0, 0, 1
-        font_size: 17
-        font_name: 'font/louis_george_cafe/Louis George Cafe.ttf'
+            size_hint: 1, 1
+            pos_hint: {'right': 1, 'y': 0}
 
 
-#Donde van los menus desplegables y muestra fechas y horas
-    #Esta es la parte que rige lo que se mostrar en el canvas de fondo de los elementos
-    BgCanvas:
-        canvas:
-            Rectangle:
-                pos: self.width * 0.05, self.height * 0.7
-                size: self.width * 0.9, self.height * 0.22
-
-
-    Label:
-        text: 'Mes'
-        pos_hint: {'x': .06 , 'y': .78}
-        size_hint: None, None
-        color: 0, 0, 0, 1
-        font_size: 18
-        font_name: 'font/louis_george_cafe/Louis George Cafe.ttf'
-
-    DropDown_Mes2:
-
-    Label:
-        text: 'Año'
-        pos_hint: {'x': .06 , 'y': .7}
-        size_hint: None, None
-        color: 0, 0, 0, 1
-        font_size: 18
-        font_name: 'font/louis_george_cafe/Louis George Cafe.ttf'
-
-    DropDown_Year2:
-
-    TabbedPanel:
-        pos_hint: {'center_x': 0.5, 'y': 0.34}
-        size_hint: 0.9 , 0.35
-        do_default_tab: False
-        tab_width: self.size[0] / 2
-
-        TabbedPanelItem:
-            text: 'BARRA'
+        Label:
+            text: 'ESTADISTICAS'
+            pos_hint: {'x': .055, 'y': .87}
+            size_hint: None, None
             color: 0, 0, 0, 1
+            font_size: 17
             font_name: 'font/louis_george_cafe/Louis George Cafe.ttf'
-            #aqui le quite el color cuando lo presionan y cuando esta en su estado normal
-            background_down: ""
-            background_normal: ""
-            #aqui designo que vista debe mostrar esto es provisonal
-            BoxLayout:
-                orientation: 'vertical'
-                Label:
-                    text: 'CONTENIDO DE UN GRAFICO DE BARRA'
 
-        TabbedPanelItem:
-            text: 'OTROS'
+
+    #Donde van los menus desplegables y muestra fechas y horas
+        #Esta es la parte que rige lo que se mostrar en el canvas de fondo de los elementos
+        BgCanvas:
+            canvas:
+                Rectangle:
+                    pos: self.width * 0.05, self.height * 0.7
+                    size: self.width * 0.9, self.height * 0.22
+
+
+        Label:
+            text: 'Mes'
+            pos_hint: {'x': .06 , 'y': .78}
+            size_hint: None, None
             color: 0, 0, 0, 1
+            font_size: 18
             font_name: 'font/louis_george_cafe/Louis George Cafe.ttf'
-            background_down: ""
-            background_normal: ""
-            BoxLayout:
-                orientation: 'vertical'
-                Label:
-                    text: 'grafico de otros tipos'
+
+        DropDown_Mes2:
+
+        Label:
+            text: 'Año'
+            pos_hint: {'x': .06 , 'y': .7}
+            size_hint: None, None
+            color: 0, 0, 0, 1
+            font_size: 18
+            font_name: 'font/louis_george_cafe/Louis George Cafe.ttf'
+
+        DropDown_Year2:
+
+        TabbedPanel:
+            pos_hint: {'center_x': 0.5, 'y': 0.34}
+            size_hint: 0.9 , 0.35
+            do_default_tab: False
+            tab_width: self.size[0] / 2
+
+            TabbedPanelItem:
+                text: 'BARRA'
+                color: 0, 0, 0, 1
+                font_name: 'font/louis_george_cafe/Louis George Cafe.ttf'
+                #aqui le quite el color cuando lo presionan y cuando esta en su estado normal
+                background_down: ""
+                background_normal: ""
+                #aqui designo que vista debe mostrar esto es provisonal
+                BoxLayout:
+                    orientation: 'vertical'
+                    Label:
+                        text: 'CONTENIDO DE UN GRAFICO DE BARRA'
+
+            TabbedPanelItem:
+                text: 'OTROS'
+                color: 0, 0, 0, 1
+                font_name: 'font/louis_george_cafe/Louis George Cafe.ttf'
+                background_down: ""
+                background_normal: ""
+                BoxLayout:
+                    orientation: 'vertical'
+                    Label:
+                        text: 'grafico de otros tipos'
 
 
 
