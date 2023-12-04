@@ -35,6 +35,9 @@ class Estado:
             self.history.add(i)
         return
 
+    def __str__(self) -> str:
+        return f'User: {self.__ag}\ndata: {self.history}'
+
 
 class Alerta(Estado):
 

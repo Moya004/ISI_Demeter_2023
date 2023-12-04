@@ -6,17 +6,18 @@ from kivy.uix.label import Label
 from manageBD import LogIn, Statistic, CropState
 from models import *
 
+
 class LogInLayout(FloatLayout):
     def login_click(self, cc: str, pas: str) -> None:
-        log = LogIn().log(cc, pas)
-        data = Statistic()
-        cul = CropState()
+        log = App.get_running_app().loginManager.log(cc, pas)
+        data = App.get_running_app().statsManager.stats() if log else None
+        alert = App.get_running_app().statsManager.search_alerts() if log else None
+        cul = App.get_running_app().cropsManager.load_usr_crops() if log else None
         if log is not None:
             App.get_running_app().usr = log
-            cul.load_crops()
-            data.stats(usr=log)
-            data.__init__()
-            data.search_alerts(usr=log)
+            App.get_running_app().crops = cul
+            App.get_running_app().regis = data
+            App.get_running_app().alerts = alert
             self.ids.LabelCredenciales.color = 1, 1, 1
 
             self.parent.parent.push("SecondScreen")
@@ -39,5 +40,11 @@ class DemeterApp(App):
     usr: Agricultor = Agricultor()
     regis: Estado = Estado()
     alerts: Alerta = Alerta()
+    crops: set[Cultivo] = set()
+    loginManager: LogIn = LogIn()
+    cropsManager: CropState = CropState()
+    statsManager: Statistic = Statistic()
 
+    def __str__(self) -> str:
+        return f'User:{self.usr.__str__()}\nDatos:{self.regis.__str__()}\nAlertas:{self.alerts.__str__()}\nCultivos:{self.crops.__str__()}'
     pass
