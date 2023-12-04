@@ -12,6 +12,7 @@ class HomeScreen(Screen):
 class BackgroundColor(Widget):
     pass
 
+
 class BgLabel(Label, BackgroundColor):
     pass
 

@@ -1,6 +1,4 @@
 
-IdentifyScreen:
-
 <IdentifyScreen>:
     BgLabel:
         size_hint: 1, 1
@@ -37,9 +35,19 @@ IdentifyScreen:
         size_hint: None, None
         size: '250dp', '30dp'
         multiline: False
-        password: True
+        password: False
         background_normal: 'imagenes_Demeter/Elements-Various/TextInput-Border.png'
         background_active: 'imagenes_Demeter/Elements-Various/TextInput-Border.png'
+        font_name: 'font/louis_george_cafe/Louis George Cafe.ttf'
+
+    Label:
+        id: dont_exist
+        text: 'El usuario no existe'
+        pos_hint: {'center_x': .5, 'y': .30}
+        size_hint: None, None
+        size: '100dp', '100dp'
+        color: 1, 1, 1, 1
+        font_size: 17
         font_name: 'font/louis_george_cafe/Louis George Cafe.ttf'
 
     Button:
@@ -51,7 +59,7 @@ IdentifyScreen:
         background_down: ''
         background_color: 118/255.0, 163/255.0, 79/255.0, 1
         font_name: 'font/louis_george_cafe/Louis George Cafe Bold.ttf'
-        on_release: root.parent.parent.push("Reset")
+        on_release: root.verify(verifyuser.text)
 
 <BackgroundColor>:
     background_color: 1, 1, 1, 1

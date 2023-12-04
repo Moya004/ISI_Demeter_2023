@@ -1,6 +1,4 @@
 
-ResetScreen:
-
 <ResetScreen>:
     BgLabel:
         size_hint: 1, 1
@@ -43,6 +41,7 @@ ResetScreen:
         font_name: 'font/louis_george_cafe/Louis George Cafe.ttf'
 
     Label:
+        id: message
         text: 'Importante: Contener 8 caracteres e incluido \nespeciales'
         pos_hint: {'center_x': .475, 'y': .32}
         size_hint: None, None
@@ -83,7 +82,7 @@ ResetScreen:
         background_down: ''
         background_color: 118/255.0, 163/255.0, 79/255.0, 1
         font_name: 'font/louis_george_cafe/Louis George Cafe Bold.ttf'
-        on_release: root.parent.parent.push("Correct_reset")
+        on_release: root.rst()
 
 <BackgroundColor>:
     background_color: 1, 1, 1, 1

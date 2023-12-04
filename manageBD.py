@@ -53,6 +53,20 @@ class LogIn(Connection):
 
         return None
 
+    def checkIfExist(self, id: str) -> Agricultor:
+        cursor = self._connector.cursor()
+        cursor.execute("SELECT * FROM AGRICULTOR WHERE AGRICULTOR.ag_id = %s", (id,))
+        result = cursor.fetchone()
+
+        if result is None:
+            return result
+
+        return Agricultor(id=result[0], mail=result[1], full_name=result[3] + ' ' + result[4])
+
+    def changePassw(self, id: str, new: str) -> None:
+        cursor = self._connector.cursor()
+        cursor.execute("UPDATE Agricultor SET CLAVE = %s WHERE AG_ID = %s", (new, id,))
+        self._connector.commit()
 
 class CropState(Connection):
     def __init__(self) -> None:
