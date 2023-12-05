@@ -25,7 +25,7 @@ class ProfileScreen(Screen):
         app.loginManager.__init__()
         app.statsManager.__init__()
         app.cropsManager.__init__()
-        self.parent.parent.parent.switch_content("Home")
+        self.parent.parent.parent.switch_content("default")
         self.parent.parent.parent.parent.pop_to_label('login', 'cerrarsesion')
 
 

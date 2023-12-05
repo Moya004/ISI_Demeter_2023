@@ -3,7 +3,7 @@ from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.label import Label
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.uix.widget import Widget
-import ProfileScreen, AlertScreen, HomeScreen, SearchScreen, AnalysisScreen, GraphicScreen, VersionScreen, AlertsMore
+import ProfileScreen, AlertScreen, HomeScreen, SearchScreen, AnalysisScreen, GraphicScreen, VersionScreen, AlertsMore, DefaultScreen
 
 
 class ContentScreen(Screen):

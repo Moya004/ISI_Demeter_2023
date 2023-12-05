@@ -14,8 +14,13 @@
             id: content_manager
             name: 'manager'
 
+            DefaultScreen:
+                name: 'default'
+
+
             HomeScreen:
                 name: 'Home'
+                on_pre_enter: self.load()
 
             AlertScreen:
                 name: 'Alerts'
