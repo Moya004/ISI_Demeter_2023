@@ -23,17 +23,20 @@ class Cultivo:
 
 class Estado:
     __ag: Agricultor
-    history: set[tuple]
+    history: list
 
-    def __init__(self, farmer: Agricultor = (), data: set[tuple] = set()) -> None:
+    def __init__(self, farmer: Agricultor = (), data: list[tuple] = ()) -> None:
         self.__ag = farmer
         self.history = data
         return
 
     def update(self, new: list[tuple]) -> None:
         for i in new:
-            self.history.add(i)
+            self.history.append(i)
         return
+
+    def __len__(self):
+        return self.history.__len__()
 
     def __str__(self) -> str:
         return f'User: {self.__ag}\ndata: {self.history}'
@@ -41,6 +44,5 @@ class Estado:
 
 class Alerta(Estado):
 
-    def __init__(self, farmer: Agricultor= Agricultor(), data: set[tuple] = set()) -> None:
+    def __init__(self, farmer: Agricultor = Agricultor(), data: list[tuple] = list()) -> None:
         super().__init__(farmer, data)
-

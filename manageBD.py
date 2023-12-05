@@ -68,19 +68,20 @@ class LogIn(Connection):
         cursor.execute("UPDATE Agricultor SET CLAVE = %s WHERE AG_ID = %s", (new, id,))
         self._connector.commit()
 
+
 class CropState(Connection):
     def __init__(self) -> None:
         super().__init__()
         super().connect()
 
-    def load_usr_crops(self, usr: Agricultor) -> set[Cultivo]:
+    def load_usr_crops(self, usr: Agricultor) -> list[Cultivo]:
         cursor = self._connector.cursor()
-        op_result = set()
+        op_result = []
         cursor.execute("SELECT DISTINCT E.CUL_ID, C.NOMBRE, C.PH_MIN, C.PH_MAX, C.TEMPE_MIN, C.TEMPE_MAX, C.HUM_MIN, "
                        "C.HUM_MAX FROM Estado E JOIN Cultivo C ON E.CUL_ID = C.CUL_ID WHERE E.AG_ID = %s", (usr.id,))
         result = cursor.fetchall()
         for i in result:
-            op_result.add(Cultivo(i[0], i[1], i[2], i[3], i[4], i[5], i[6], i[7]))
+            op_result.append(Cultivo(i[0], i[1], i[2], i[3], i[4], i[5], i[6], i[7]))
 
         return op_result
 
@@ -97,6 +98,8 @@ class Statistic(Connection):
 
     def __init__(self) -> None:
         super().__init__()
+        self.lastAlert = None
+        self.lastRegister = None
         super().connect()
 
     def stats(self, usr: Agricultor) -> Estado:
@@ -128,7 +131,7 @@ class Statistic(Connection):
                                hour=result[-1][3].hour, minute=result[-1][3].minute, second=result[-1][3].second,
                                microsecond=result[-1][3].microsecond)
 
-        return Estado(usr, set(result))
+        return Estado(usr, result[:])
 
     def search_alerts(self, usr: Agricultor) -> Alerta:
         conn = self._connector.cursor()
@@ -137,9 +140,9 @@ class Statistic(Connection):
         if self.lastAlert is None:
             try:
                 conn.execute("SELECT E.AG_ID, E.CUL_ID, E.FECHA, E.HORA, E.PH, E.TEMPE, E.HUM FROM Estado E JOIN "
-                             "Cultivo C ON E.CUL_ID = C.CUL_ID WHERE (E.PH < C.PH_MIN OR "
+                             "Cultivo C ON E.CUL_ID = C.CUL_ID WHERE ((E.PH < C.PH_MIN OR "
                              "E.PH > C.PH_MAX) OR (E.TEMPE < C.TEMPE_MIN OR E.TEMPE > C.TEMPE_MAX) OR (E.HUM < "
-                             "C.HUM_MIN OR E.HUM > C.HUM_MAX) AND E.AG_ID = %s", (usr.id,))
+                             "C.HUM_MIN OR E.HUM > C.HUM_MAX) )AND E.AG_ID = %s", (usr.id,))
                 result = conn.fetchall()
             except Exception as ex:
                 print(ex)
@@ -150,7 +153,7 @@ class Statistic(Connection):
                     "SELECT E.AG_ID, E.CUL_ID, E.FECHA, E.HORA, E.PH, E.TEMPE, E.HUM FROM Estado E JOIN "
                     "Cultivo C ON E.CUL_ID = C.CUL_ID WHERE (E.PH < C.PH_MIN OR "
                     "E.PH > C.PH_MAX) OR (E.TEMPE < C.TEMPE_MIN OR E.TEMPE > C.TEMPE_MAX) OR (E.HUM < "
-                    "C.HUM_MIN OR E.HUM > C.HUM_MAX) AND E.AG_ID = %s AND Estado.Fecha >= %s AND Estado.Hora > %s ORDER"
+                    "C.HUM_MIN OR E.HUM > C.HUM_MAX) AND E.AG_ID = %s AND Estado.Fecha >= %s AND Estado.Hora > %s ORDER "
                     "BY fecha ASC, hora ASC",
                     (usr.id, self.lastAlert.date(), self.lastAlert.time()))
                 result = conn.fetchall()
@@ -160,8 +163,8 @@ class Statistic(Connection):
 
         if len(result) == 0:
             return Alerta()
-        self.lastRegister = dt(year=result[-1][2].year, month=result[-1][2].month, day=result[-1][2].day,
-                               hour=result[-1][3].hour, minute=result[-1][3].minute, second=result[-1][3].second,
-                               microsecond=result[-1][3].microsecond)
+        self.lastAlert = dt(year=result[-1][2].year, month=result[-1][2].month, day=result[-1][2].day,
+                            hour=result[-1][3].hour, minute=result[-1][3].minute, second=result[-1][3].second,
+                            microsecond=result[-1][3].microsecond)
 
-        return Alerta(usr, set(result))
+        return Alerta(usr, result[:])

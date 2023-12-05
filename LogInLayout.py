@@ -16,13 +16,15 @@ class LogInLayout(FloatLayout):
         if log is not None:
             App.get_running_app().usr = log
             App.get_running_app().crops = cul
-            App.get_running_app().regis = data
-            App.get_running_app().alerts = alert
+            App.get_running_app().regis = Estado(log, data)
+            App.get_running_app().alerts = Alerta(log, alert)
             self.ids.LabelCredenciales.color = 1, 1, 1
-
+            self.ids.PassText.text = ''
+            self.ids.UserText.text = ''
             self.parent.parent.push("SecondScreen")
         else:
             self.ids.LabelCredenciales.color = 1, 0, 0
+
 
 
 class BackgroundColor(Widget):
@@ -40,7 +42,7 @@ class DemeterApp(App):
     usr: Agricultor = Agricultor()
     regis: Estado = Estado()
     alerts: Alerta = Alerta()
-    crops: set[Cultivo] = set()
+    crops: list[Cultivo] = list()
     loginManager: LogIn = LogIn()
     cropsManager: CropState = CropState()
     statsManager: Statistic = Statistic()
