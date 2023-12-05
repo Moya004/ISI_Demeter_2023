@@ -27,8 +27,8 @@
         BgCanvas:
             canvas:
                 Rectangle:
-                    pos: self.width * 0.05, self.height * 0.7
-                    size: self.width * 0.9, self.height * 0.22
+                    pos: self.width * 0.05, self.height * 0.1
+                    size: self.width * 0.9, self.height * 0.8
 
 
         Label:
@@ -40,6 +40,7 @@
             font_name: 'font/louis_george_cafe/Louis George Cafe.ttf'
 
         DropDown_Mes2:
+            id: select_mes
 
         Label:
             text: 'Año'
@@ -50,39 +51,65 @@
             font_name: 'font/louis_george_cafe/Louis George Cafe.ttf'
 
         DropDown_Year2:
+            id: select_year
 
-        TabbedPanel:
-            pos_hint: {'center_x': 0.5, 'y': 0.34}
-            size_hint: 0.9 , 0.35
-            do_default_tab: False
-            tab_width: self.size[0] / 2
-
-            TabbedPanelItem:
-                text: 'BARRA'
+        BoxLayout:
+            Label:
+                id: ph_prom
+                text: 'hola 1'
+                pos_hint: {'x': .06 , 'y': .45}
+                size_hint: None, None
                 color: 0, 0, 0, 1
+                font_size: 14
                 font_name: 'font/louis_george_cafe/Louis George Cafe.ttf'
-                #aqui le quite el color cuando lo presionan y cuando esta en su estado normal
-                background_down: ""
-                background_normal: ""
-                #aqui designo que vista debe mostrar esto es provisonal
-                BoxLayout:
-                    orientation: 'vertical'
-                    Label:
-                        text: 'CONTENIDO DE UN GRAFICO DE BARRA'
 
-            TabbedPanelItem:
-                text: 'OTROS'
+
+            Label:
+                id: temp_prom
+                text: 'hola 2'
+                pos_hint: {'x': .06 , 'y': .4}
+                size_hint: None, None
                 color: 0, 0, 0, 1
+                font_size: 18
                 font_name: 'font/louis_george_cafe/Louis George Cafe.ttf'
-                background_down: ""
-                background_normal: ""
-                BoxLayout:
-                    orientation: 'vertical'
-                    Label:
-                        text: 'grafico de otros tipos'
 
+            Label:
+                id: hum_prom
+                text: 'hola 3'
+                pos_hint: {'x': .06 , 'y': .35}
+                size_hint: None, None
+                color: 0, 0, 0, 1
+                font_size: 14
+                font_name: 'font/louis_george_cafe/Louis George Cafe.ttf'
 
+            Label:
+                id: num_regis
+                text: 'hola 4'
+                pos_hint: {'x': .06 , 'y': .3}
+                size_hint: None, None
+                color: 0, 0, 0, 1
+                font_size: 14
+                font_name: 'font/louis_george_cafe/Louis George Cafe.ttf'
 
+            Label:
+                id: num_alert
+                text: 'hola 5'
+                pos_hint: {'x': .06 , 'y': .2}
+                size_hint: None, None
+                color: 0, 0, 0, 1
+                font_size: 14
+                font_name: 'font/louis_george_cafe/Louis George Cafe.ttf'
+
+            Label:
+                id: prc_alert
+                text: 'hola 6'
+                pos_hint: {'x': .06 , 'y': .1}
+                size_hint: None, None
+                color: 0, 0, 0, 1
+                font_size: 14
+                font_name: 'font/louis_george_cafe/Louis George Cafe.ttf'
+
+#Esto no se toca
 #Menu desplegable para los meses le añadi una barra de desplazamiento al ser muchos
 <DropDown_Mes2>:
     FloatLayout:
@@ -110,6 +137,7 @@
             id: dropdown
             on_select:
                 selected_month_label.text = '{}'.format(args[1])
+                root.parent.parent.fetch()
 
             ScrollView:
                 size_hint_y: None
@@ -266,6 +294,7 @@
             id: dropdown
             on_select:
                 selected_year_label.text = '{}'.format(args[1])
+                root.parent.parent.fetch()
 
             ScrollView:
                 size_hint_y: None
