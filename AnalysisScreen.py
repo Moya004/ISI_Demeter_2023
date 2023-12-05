@@ -21,7 +21,7 @@ class AnalysisScreen(Screen):
         App.get_running_app().regis.update(getattr(data.history, "history", [])[:])
         App.get_running_app().alerts.update(getattr(alert.history, "history", [])[:])
         self.load()
-        lastR = getattr(App.get_running_app().alerts.history, "history", [])[-1]
+        lastR = getattr(App.get_running_app().alerts.history, "history", [])[-1] if len(getattr(App.get_running_app().alerts.history, "history", [])) > 0 else None
         crops = App.get_running_app().crops
         crops_names = {}
         for m in crops:
@@ -29,8 +29,12 @@ class AnalysisScreen(Screen):
 
         self.ids.output.text = (f'DATOS ACTUALIZADOS\n\nNombre Cietifico del cultivo: {lastR[1]}\nNombre comun del '
                                 f'cultivo {crops_names[lastR[1]]}\nDATOS RECOLECTADOS\n\nPH : {lastR[4]}\nTEMPERATURA '
-                                f'EN CELSIUS : {lastR[5]}\nHUMEDAD RELATIVA : {lastR[6]}')
+                                f'EN CELSIUS : {lastR[5]}\nHUMEDAD RELATIVA : {lastR[6]}') if lastR is not None else (f'DATOS ACTUALIZADOS\n\nNombre Cietifico del cultivo: \nNombre comun del '
+                                f'cultivo \nDATOS RECOLECTADOS\n\nPH : \nTEMPERATURA '
+                                f'EN CELSIUS : \nHUMEDAD RELATIVA : ')
 
+    def unload(self) -> None:
+        self.ids.output.text = ''
 class BackgroundColor(Widget):
     pass
 

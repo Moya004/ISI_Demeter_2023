@@ -41,8 +41,8 @@ class AlertScreen(Screen):
             'Diciembre': 12
         }
         result = App.get_running_app().statsManager.get_last_register_given_date(App.get_running_app().usr, anio, mapp[mes])
-        self.ids.date_last_register.text = f'{result[2].day}/{result[2].month}/{result[2].year}'
-        self.ids.time_last_register.text = f'{result[3].hour}:{result[3].minute}:{result[3].second}'
+        self.ids.date_last_register.text = f'{result[2].day}/{result[2].month}/{result[2].year}' if len(result) > 0 else '--/--/--'
+        self.ids.time_last_register.text = f'{result[3].hour}:{result[3].minute}:{result[3].second}'if len(result) > 0 else '--:--:--'
 class BackgroundColor(Widget):
     pass
 

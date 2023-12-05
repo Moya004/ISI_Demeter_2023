@@ -25,10 +25,12 @@
             AlertMoreScreen:
                 name: 'AlertsMore'
                 on_pre_enter: self.display()
+                on_pre_leave: self.unload()
 
             AnalysisScreen:
                 name: 'Analysis'
                 on_pre_enter: self.load()
+                on_pre_leave: self.unload()
 
             GraphicScreen:
                 name: 'Statistics'
@@ -37,6 +39,7 @@
             SearchScreen:
                 name: 'Search'
                 on_pre_enter: self.load()
+                on_pre_leave: self.unload()
 
             ProfileScreen:
                 name: 'Profile'
