@@ -17,6 +17,24 @@
             size: '70dp', '70dp'
             on_press: root.parent.parent.parent.switch_content('Alerts')
 
+        Label:
+            id: to_display
+            text: ''
+            pos_hint: {'x': .5, 'y': .7}
+            size_hint: None, None
+            size: '200dp', '40dp'
+            color: 0, 0, 0, 1
+            font_name: 'font/louis_george_cafe/Louis George Cafe Bold.ttf'
+
+        Label:
+            id: selected_month_label
+            text: 'Seleccione el mes'
+            pos_hint: {'x': .575, 'y': .835}
+            size_hint: None, None
+            size: '200dp', '40dp'
+            color: 244/255, 244/255, 244/255, 1
+            font_name: 'font/louis_george_cafe/Louis George Cafe Bold.ttf'
+
         DropDown_Mes3:
         DropDown_Year3:
 
@@ -33,15 +51,6 @@
             size_hint: None, None
             size: '200dp', '40dp'
             on_release: dropdown.open(self)
-
-        Label:
-            id: selected_month_label
-            text: 'Seleccione el mes'
-            pos_hint: {'x': .575, 'y': .835}
-            size_hint: None, None
-            size: '200dp', '40dp'
-            color: 244/255, 244/255, 244/255, 1
-            font_name: 'font/louis_george_cafe/Louis George Cafe Bold.ttf'
 
         DropDown:
             id: dropdown

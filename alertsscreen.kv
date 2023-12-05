@@ -39,7 +39,7 @@
 
 
         Label:
-        #esto lo debes hacer tu ya que es concetandola a la base de datos y la informacion se debe ccolocar en el label creo
+            id: alert_amount
             text: '00'
             pos_hint: {'x': .25 , 'y': .7}
             size_hint: None, None
@@ -78,7 +78,7 @@
 
 
         Label:
-        #esto lo debes hacer tu ya que es concetandola a la base de datos
+            id: date_last_alert
             text: '00/00/0000'
             pos_hint: {'x': .69 , 'y': .745}
             size_hint: None, None
@@ -108,8 +108,8 @@
 
 
         Label:
-        #esto lo debes hacer tu ya que es concetandola a la base de datos y la informacion se debe ccolocar en el label creo
-            text: '00:00 am'
+            id: time_last_alert
+            text: '00:00'
             pos_hint: {'x': .69 , 'y': .675}
             size_hint: None, None
             color: 0, 0, 0, 1
@@ -134,7 +134,7 @@
 
 
         Label:
-            id: 'label_more'
+            id: label_more
             text: 'Mostrar Más'
             pos_hint: {'x': .76 , 'y': .57}
             size_hint: None, None
@@ -163,6 +163,7 @@
             font_name: 'font/louis_george_cafe/Louis George Cafe.ttf'
 
         DropDown_Mes:
+            id: select_mes
 
         Label:
             text: 'Año'
@@ -173,7 +174,7 @@
             font_name: 'font/louis_george_cafe/Louis George Cafe.ttf'
 
         DropDown_Year:
-
+            id: select_year
 
         BgCanvas:
             canvas:
@@ -215,8 +216,8 @@
             font_name: 'font/louis_george_cafe/Louis George Cafe.ttf'
 
         Label:
-        #esto lo debes hacer tu ya que es concetandola a la base de datos
-            text: '00/00/0000'
+            id: date_last_register
+            text: '--/--/----'
             pos_hint: {'x': .48 , 'y': .31}
             size_hint: None, None
             color: 0, 0, 0, 1
@@ -233,8 +234,8 @@
             font_name: 'font/louis_george_cafe/Louis George Cafe.ttf'
 
         Label:
-        #esto lo debes hacer tu ya que es concetandola a la base de datos
-            text: '00:00 am'
+            id: time_last_register
+            text: '--:--'
             pos_hint: {'x': .735 , 'y': .31}
             size_hint: None, None
             color: 0, 0, 0, 1
@@ -279,6 +280,7 @@
             id: dropdown
             on_select:
                 selected_month_label.text = '{}'.format(args[1])
+                root.parent.parent.search_last()
 
             ScrollView:
                 size_hint_y: None
@@ -435,6 +437,7 @@
             id: dropdown
             on_select:
                 selected_year_label.text = '{}'.format(args[1])
+                root.parent.parent.search_last()
 
             ScrollView:
                 size_hint_y: None

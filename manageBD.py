@@ -151,11 +151,10 @@ class Statistic(Connection):
             try:
                 conn.execute(
                     "SELECT E.AG_ID, E.CUL_ID, E.FECHA, E.HORA, E.PH, E.TEMPE, E.HUM FROM Estado E JOIN "
-                    "Cultivo C ON E.CUL_ID = C.CUL_ID WHERE (E.PH < C.PH_MIN OR "
+                    "Cultivo C ON E.CUL_ID = C.CUL_ID WHERE ((E.PH < C.PH_MIN OR "
                     "E.PH > C.PH_MAX) OR (E.TEMPE < C.TEMPE_MIN OR E.TEMPE > C.TEMPE_MAX) OR (E.HUM < "
-                    "C.HUM_MIN OR E.HUM > C.HUM_MAX) AND E.AG_ID = %s AND Estado.Fecha >= %s AND Estado.Hora > %s ORDER "
-                    "BY fecha ASC, hora ASC",
-                    (usr.id, self.lastAlert.date(), self.lastAlert.time()))
+                    "C.HUM_MIN OR E.HUM > C.HUM_MAX)) AND E.AG_ID = %s AND Estado.Fecha >= %s AND Estado.Hora > %s "
+                    "ORDER BY fecha ASC, hora ASC", (usr.id, self.lastAlert.date(), self.lastAlert.time()))
                 result = conn.fetchall()
 
             except Exception as ex:
@@ -168,3 +167,36 @@ class Statistic(Connection):
                             microsecond=result[-1][3].microsecond)
 
         return Alerta(usr, result[:])
+
+    def get_last_register_given_date(self, usr: Agricultor, yr: str, mnth: str) -> tuple:
+        cursor = self._connector.cursor()
+        result = list()
+        try:
+            cursor.execute("SELECT * FROM Estado WHERE EXTRACT(YEAR FROM FECHA) = %s AND EXTRACT(MONTH FROM "
+                           "FECHA) = %s AND ESTADO.AG_ID = %s ORDER BY FECHA ASC, HORA ASC", (yr, mnth, usr.id,))
+            result = cursor.fetchall()
+        except Exception as ex:
+            print(ex)
+
+        if len(result) == 0:
+            return tuple()
+
+        return result[-1]
+
+    def get_last_alert_given_date(self, usr: Agricultor, yr: str, mnth: str) -> tuple:
+        cursor = self._connector.cursor()
+        result = list
+        try:
+            cursor.execute("SELECT E.AG_ID, E.CUL_ID, E.FECHA, E.HORA, E.PH, E.TEMPE, E.HUM FROM Estado E JOIN "
+                           "Cultivo C ON E.CUL_ID = C.CUL_ID WHERE ((E.PH < C.PH_MIN OR "
+                           "E.PH > C.PH_MAX) OR (E.TEMPE < C.TEMPE_MIN OR E.TEMPE > C.TEMPE_MAX) OR (E.HUM < "
+                           "C.HUM_MIN OR E.HUM > C.HUM_MAX) )AND EXTRACT(YEAR FROM FECHA) = %s AND EXTRACT(MONTH FROM "
+                           "FECHA) = %s AND E.AG_ID = %s", (yr, mnth, usr.id,))
+            result = cursor.fetchall()
+        except Exception as ex:
+            print(ex)
+
+        if result is None:
+            return tuple()
+
+        return result[-1]

@@ -19,11 +19,12 @@
 
             AlertScreen:
                 name: 'Alerts'
+                on_pre_enter: self.load()
 
 
             AlertMoreScreen:
                 name: 'AlertsMore'
-
+                on_pre_enter: self.display()
 
             AnalysisScreen:
                 name: 'Analysis'
