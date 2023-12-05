@@ -61,7 +61,7 @@
 
 
         Label:
-        #esto lo debes hacer tu ya que es concetandola a la base de datos
+            id: date_last_register
             text: '00/00/0000'
             pos_hint: {'x': .48 , 'y': .74}
             size_hint: None, None
@@ -80,7 +80,7 @@
 
 
         Label:
-        #esto lo debes hacer tu ya que es concetandola a la base de datos
+            id: time_last_register
             text: '00:00 am'
             pos_hint: {'x': .735 , 'y': .74}
             size_hint: None, None
@@ -97,6 +97,14 @@
             font_size: 25
             font_name: 'font/louis_george_cafe/Louis George Cafe.ttf'
 
+        Label:
+            id: not_found
+            text: 'Cultivo no encontrado'
+            pos_hint: {'center_x': .20, 'y': .55}
+            size_hint: None, None
+            color: 1, 1, 1, 1
+            font_size: 18
+            font_name: 'font/louis_george_cafe/Louis George Cafe.ttf'
 
         TextInput:
             id: Croptext
@@ -124,7 +132,7 @@
             background_color: 118/255.0, 163/255.0, 79/255.0, 1
             #Defini la fuente y deje el tamaño por defecto
             font_name: 'font/louis_george_cafe/Louis George Cafe Bold.ttf'
-            on_press:
+            on_press: root.search()
 
 
         BgCanvas:
@@ -139,7 +147,8 @@
 
 
         Label:
-            text: 'Resultado'
+            id: ph
+            text: ''
             pos_hint: {'x': .15 , 'y': .35}
             size_hint: None, None
             color: 0, 0, 0, 1
@@ -159,8 +168,9 @@
 
 
         Label:
-            text: 'Condiciones necesarias'
-            pos_hint: {'center_x': .5 , 'y': .28}
+            id: cul_ph
+            text: ''
+            pos_hint: {'x': .65 , 'y': .35}
             size_hint: None, None
             color: 0, 0, 0, 1
             font_size: 18
@@ -168,7 +178,8 @@
 
 
         Label:
-            text: 'Dato a medir'
+            id: temp
+            text: ''
             pos_hint: {'x': .15 , 'y': .2}
             size_hint: None, None
             color: 0, 0, 0, 1
@@ -186,25 +197,6 @@
                     size: self.width * 0.3, self.height * 0.07
                     radius: [5, 5, 5, 5]  # Radios de las esquinas
 
-
-        Label:
-            text: 'Condiciones actuales'
-            pos_hint: {'center_x': .5 , 'y': .1}
-            size_hint: None, None
-            color: 0, 0, 0, 1
-            font_size: 18
-            font_name: 'font/louis_george_cafe/Louis George Cafe.ttf'
-
-
-        Label:
-            text: 'Dato a medir2'
-            pos_hint: {'x': .15 , 'y': .03}
-            size_hint: None, None
-            color: 0, 0, 0, 1
-            font_size: 18
-            font_name: 'font/louis_george_cafe/Louis George Cafe.ttf'
-
-
         BgCanvas:
             canvas:
                 Color:
@@ -214,3 +206,32 @@
                     pos: self.width * 0.55, self.height * 0.07
                     size: self.width * 0.3, self.height * 0.07
                     radius: [5, 5, 5, 5]  # Radios de las esquinas
+
+        Label:
+            id: cul_hum
+            text: ''
+            pos_hint: {'x': .65 , 'y': .03}
+            size_hint: None, None
+            color: 0, 0, 0, 1
+            font_size: 18
+            font_name: 'font/louis_george_cafe/Louis George Cafe.ttf'
+
+
+        Label:
+            id: hum
+            text: ''
+            pos_hint: {'x': .15 , 'y': .03}
+            size_hint: None, None
+            color: 0, 0, 0, 1
+            font_size: 18
+            font_name: 'font/louis_george_cafe/Louis George Cafe.ttf'
+
+        Label:
+            id: cul_temp
+            text: ''
+            pos_hint: {'x': .65 , 'y': .2}
+            size_hint: None, None
+            color: 0, 0, 0, 1
+            font_size: 18
+            font_name: 'font/louis_george_cafe/Louis George Cafe.ttf'
+

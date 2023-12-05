@@ -87,8 +87,10 @@ class CropState(Connection):
 
     def search_crop(self, name: str) -> Cultivo:
         cursor = self._connector.cursor()
-        cursor.execute("SELECT * FROM CULTIVO WHERE CULTIVO.nombre = %s", (name,))
+        cursor.execute("SELECT * FROM CULTIVO WHERE LOWER(CULTIVO.nombre) = %s", (name,))
         result = cursor.fetchone()
+        if result is None:
+            return None
         return Cultivo(result[0], result[1], result[2], result[3], result[4], result[5], result[6], result[7])
 
 
