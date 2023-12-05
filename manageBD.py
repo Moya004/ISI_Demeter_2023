@@ -119,7 +119,7 @@ class Statistic(Connection):
         else:
             try:
                 conn.execute(
-                    "SELECT * FROM Estado WHERE Estado.AG_ID = %s AND Estado.Fecha >= %s AND Estado.Hora > %s ORDER "
+                    "SELECT * FROM Estado WHERE Estado.AG_ID = %s AND Estado.Fecha >= %s AND Estado.Hora >= %s ORDER "
                     "BY fecha ASC, hora ASC",
                     (usr.id, self.lastRegister.date(), self.lastRegister.time()))
                 result = conn.fetchall()
@@ -155,7 +155,7 @@ class Statistic(Connection):
                     "SELECT E.AG_ID, E.CUL_ID, E.FECHA, E.HORA, E.PH, E.TEMPE, E.HUM FROM Estado E JOIN "
                     "Cultivo C ON E.CUL_ID = C.CUL_ID WHERE ((E.PH < C.PH_MIN OR "
                     "E.PH > C.PH_MAX) OR (E.TEMPE < C.TEMPE_MIN OR E.TEMPE > C.TEMPE_MAX) OR (E.HUM < "
-                    "C.HUM_MIN OR E.HUM > C.HUM_MAX)) AND E.AG_ID = %s AND Estado.Fecha >= %s AND Estado.Hora > %s "
+                    "C.HUM_MIN OR E.HUM > C.HUM_MAX)) AND E.AG_ID = %s AND Estado.Fecha >= %s AND Estado.Hora >= %s "
                     "ORDER BY fecha ASC, hora ASC", (usr.id, self.lastAlert.date(), self.lastAlert.time()))
                 result = conn.fetchall()
 
