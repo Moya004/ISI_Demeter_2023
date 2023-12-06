@@ -7,6 +7,12 @@
         size_hint: 1, 1
         pos_hint: {'right': 1, 'y': 0}
 
+    Image:
+        source: 'imagenes_Demeter/Elements-Various/profile-photodefault.png'
+        size_hint: None, None
+        size: '125dp' , '125dp'
+        pos_hint: {'center_x': .5, 'top': 1 }
+
     Label:
         id: id_profile
         text: 'ID: ' + root.parent.__str__()

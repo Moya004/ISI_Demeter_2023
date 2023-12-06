@@ -11,9 +11,9 @@ class SearchScreen(Screen):
         lastA = App.get_running_app().statsManager.lastRegister
         self.ids.date_last_register.text = f'{lastA.day}/{lastA.month}/{lastA.year}' if lastA is not None else '-/-/-'
         self.ids.time_last_register.text = f'{lastA.hour}:{lastA.minute}:{lastA.second}' if lastA is not None else '-:-:-'
-        self.ids.ph.text = f'Ultimo nivel de PH: {lastR[4]}' if lastR is not None else 'Ultimo nivel de PH:'
-        self.ids.temp.text = f'Ultimo nivel de Temp.: {lastR[5]}' if lastR is not None else 'Ultimo nivel de Temp. :'
-        self.ids.hum.text = f'Ultimo nivel de Humedad: {lastR[6]}' if lastR is not None else 'Ultimo nivel de Humedad:'
+        self.ids.ph.text = f' Ultimo nivel de PH: {lastR[4]}' if lastR is not None else 'Ultimo nivel de PH:'
+        self.ids.temp.text = f'        Ultimo nivel de Temp.: {lastR[5]}' if lastR is not None else 'Ultimo nivel de Temp. :'
+        self.ids.hum.text = f'              Ultimo nivel de Humedad: {lastR[6]}' if lastR is not None else 'Ultimo nivel de Humedad:'
 
     def search(self) -> None:
         result = App.get_running_app().cropsManager.search_crop(self.ids.Croptext.text.lower())
@@ -23,9 +23,9 @@ class SearchScreen(Screen):
             self.ids.cul_temp.text = ''
             self.ids.cul_hum.text = ''
             return
-        self.ids.cul_ph.text = f'PH: {getattr(result, "_Cultivo__ph_min", "xd")} a {getattr(result, "_Cultivo__ph_max", "xd")}'
-        self.ids.cul_temp.text = f'TEMP.C:{getattr(result, "_Cultivo__temp_min", "xd")} a {getattr(result, "_Cultivo__temp_max", "xd")}'
-        self.ids.cul_hum.text = f'HUMEDAD:{getattr(result, "_Cultivo__hum_min", "xd")} a {getattr(result, "_Cultivo__hum_max", "xd")}'
+        self.ids.cul_ph.text = f'{getattr(result, "_Cultivo__ph_min", "xd")} a {getattr(result, "_Cultivo__ph_max", "xd")}'
+        self.ids.cul_temp.text = f'{getattr(result, "_Cultivo__temp_min", "xd")} a {getattr(result, "_Cultivo__temp_max", "xd")}'
+        self.ids.cul_hum.text = f'{getattr(result, "_Cultivo__hum_min", "xd")} a {getattr(result, "_Cultivo__hum_max", "xd")}'
 
     def unload(self) -> None:
         self.ids.not_found.color = 1, 1, 1, 1
