@@ -11,35 +11,45 @@
     BgCanvas:
         canvas:
             Rectangle:
-                pos: self.width * 0.05, self.height * 0.695
-                size: self.width * 0.9, self.height * 0.22
+                pos: self.width * 0.05, self.height * 0.59
+                size: self.width * 0.9, self.height * 0.35
+
+    Image:
+        source: 'imagenes_Demeter/pictures/Home-imagen.png'
+        size_hint: None, None
+        size: '600dp' , '200dp'
+        pos_hint: {'center_x': .5, 'center_y': .74 }
 
 
     Label:
         text: 'INICIO'
-        pos_hint: {'x': .07, 'y': .78}
+        pos_hint: {'x': .07, 'y': .82}
         size_hint: None, None
         color: 0, 0, 0, 1
         font_size: 27
         font_name: 'font/louis_george_cafe/Louis George Cafe.ttf'
+
 
     BgCanvas:
         canvas:
             Rectangle:
                 pos: self.width * 0.05, self.height * 0.05
                 size: self.width * 0.9, self.height * 0.064
+
+
     Label:
         text: 'RESUMENES'
-        pos_hint: {'x': .07 , 'y': .01}
+        pos_hint: {'x': .07 , 'y': .005}
         size_hint: None, None
         color: 0, 0, 0, 1
         font_size: 15
         font_name: 'font/louis_george_cafe/Louis George Cafe.ttf'
 
+
     Label:
         id: 'label_more'
         text: 'Mostrar Más'
-        pos_hint: {'x': .76 , 'y': .01}
+        pos_hint: {'x': .76 , 'y': .005}
         size_hint: None, None
         color: 90/255, 139/255, 48/255, 1
         #Defini la fuente y el tamaño de la misma
@@ -50,8 +60,8 @@
 
 #Aqui va la cosita que utilizas para unas mini vistas en el home
     TabbedPanel:
-        pos_hint: {'center_x': 0.5, 'y': 0.15}
-        size_hint: 0.9 , 0.5
+        pos_hint: {'center_x': 0.5, 'y': 0.13}
+        size_hint: 0.9 , 0.45
         do_default_tab: False
         tab_width: self.size[0] / 2
 
@@ -67,25 +77,31 @@
             BoxLayout:
                 orientation: 'vertical'
                 #rgba(9, 58, 184, 1)
+                #rgba(255, 239, 187, 1)
                 canvas.before:
                     Color:
-                        rgba: 9/255, 58/255, 184/255, 1  # Fondo rojo
+                       #rgba: 9/255, 58/255, 184/255, 1  # Fondo azul
+                        rgba: 255/255, 239/255, 187/255, 1  # Fondo
                     Rectangle:
                         pos: self.pos
                         size: self.size
                 Label:
                     id: est_1
-                    text: 'Contenido de la pestaña 1'
+                    text: ''
+                    color: 0, 0, 0, 1
                 Label:
                     id: est_2
-                    text: 'Contenido de la pestaña 1'
+                    text: ''
+                    color: 0, 0, 0, 1
                 Label:
                     id: est_3
-                    text: 'Contenido de la pestaña 1'
+                    text: ''
+                    color: 0, 0, 0, 1
 
         TabbedPanelItem:
             text: 'R.ALERTAS'
             color: 0, 0, 0, 1
+            #color: 1,1,1,1
             font_name: 'font/louis_george_cafe/Louis George Cafe.ttf'
             background_down: ""
             background_normal: ""
@@ -94,17 +110,21 @@
                 canvas.before:
                     Color:
                         #rgba(178, 24, 24, 1)
-                        rgba: 178/255, 14/255, 24/255, 1  # Fondo rojo
+                        #rgba(255, 221, 208, 1)
+                        rgba: 255/255, 221/255, 208/255, 1  # Fondo
                     Rectangle:
                         pos: self.pos
                         size: self.size
                 Label:
                     id: al_1
-                    text: 'Contenido de la pestaña 2'
+                    text: ''
+                    color: 0, 0, 0, 1
                 Label:
                     id: al_2
-                    text: 'Contenido de la pestaña 2'
+                    text: ''
+                    color: 0, 0, 0, 1
                 Label:
                     id: al_3
-                    text: 'Contenido de la pestaña 2'
+                    text: ''
+                    color: 0, 0, 0, 1
 

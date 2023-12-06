@@ -4,9 +4,18 @@
             #background_color: 244/255, 244/255, 244/255, 1
             #provisonal mientras ubico los canvas blancos
             #background_color: 226/255, 226/255, 133/255, 1
-
             size_hint: 1, 1
             pos_hint: {'right': 1, 'y': 0}
+
+
+        Label:
+            text: 'DETALLES DE ALERTAS'
+            pos_hint: {'center_x': .5, 'top': 1}
+            size_hint: None, None
+            color: 0, 0, 0, 1
+            font_size: 20
+            font_name: 'font/louis_george_cafe/Louis George Cafe.ttf'
+
 
         Button:
             # Usa una imagen como background del botón
@@ -17,217 +26,18 @@
             size: '70dp', '70dp'
             on_press: root.parent.parent.parent.switch_content('Alerts')
 
+    ScrollView:
+        pos_hint: {'center_x': .5, 'y': 0.05}
+        size_hint: None, None
+        size: dp(600), dp(500)
+        do_scroll_x: False
+
         Label:
             id: to_display
             text: ''
-            pos_hint: {'x': .5, 'y': .7}
-            size_hint: None, None
-            size: '200dp', '40dp'
             color: 0, 0, 0, 1
+            size_hint_y: None
+            height: self.texture_size[1]
             font_name: 'font/louis_george_cafe/Louis George Cafe Bold.ttf'
+            halign: 'center'
 
-        Label:
-            id: selected_month_label
-            text: 'Seleccione el mes'
-            pos_hint: {'x': .575, 'y': .835}
-            size_hint: None, None
-            size: '200dp', '40dp'
-            color: 244/255, 244/255, 244/255, 1
-            font_name: 'font/louis_george_cafe/Louis George Cafe Bold.ttf'
-
-        DropDown_Mes3:
-        DropDown_Year3:
-
-
-<DropDown_Mes3>:
-    FloatLayout:
-        orientation: 'vertical'
-
-        Button:
-            id: mainbtn
-            background_normal: 'imagenes_Demeter/Elements-Various/drop-down-menu.png'
-            background_down: 'imagenes_Demeter/Elements-Various/drop-down-menu.png'
-            pos_hint: {'x': .6, 'y': .835}
-            size_hint: None, None
-            size: '200dp', '40dp'
-            on_release: dropdown.open(self)
-
-        DropDown:
-            id: dropdown
-            on_select:
-                selected_month_label.text = '{}'.format(args[1])
-
-            ScrollView:
-                size_hint_y: None
-                height: 150
-
-                GridLayout:
-                    cols: 1
-                    size_hint_y: None
-                    height: self.minimum_height
-
-                    Button:
-                        text: 'Enero'
-                        font_name: 'font/louis_george_cafe/Louis George Cafe Bold.ttf'
-                        background_normal: ''
-                        background_down: ''
-                        background_color: color
-                        size_hint_y: None
-                        height: tam
-                        on_release: dropdown.select(self.text)
-
-                    Button:
-                        text: 'Febrero'
-                        font_name: 'font/louis_george_cafe/Louis George Cafe Bold.ttf'
-                        background_normal: ''
-                        background_down: ''
-                        background_color: color
-                        size_hint_y: None
-                        height: tam
-                        on_release: dropdown.select(self.text)
-
-                    Button:
-                        text: 'Marzo'
-                        font_name: 'font/louis_george_cafe/Louis George Cafe Bold.ttf'
-                        background_normal: ''
-                        background_down: ''
-                        background_color: color
-                        size_hint_y: None
-                        height: tam
-                        on_release: dropdown.select(self.text)
-
-                    Button:
-                        text: 'Abril'
-                        font_name: 'font/louis_george_cafe/Louis George Cafe Bold.ttf'
-                        background_normal: ''
-                        background_down: ''
-                        background_color: color
-                        size_hint_y: None
-                        height: tam
-                        on_release: dropdown.select(self.text)
-
-                    Button:
-                        text: 'Mayo'
-                        font_name: 'font/louis_george_cafe/Louis George Cafe Bold.ttf'
-                        background_normal: ''
-                        background_down: ''
-                        background_color: color
-                        size_hint_y: None
-                        height: tam
-                        on_release: dropdown.select(self.text)
-
-                    Button:
-                        text: 'Junio'
-                        font_name: 'font/louis_george_cafe/Louis George Cafe Bold.ttf'
-                        background_normal: ''
-                        background_down: ''
-                        background_color: color
-                        size_hint_y: None
-                        height: tam
-                        on_release: dropdown.select(self.text)
-
-                    Button:
-                        text: 'Julio'
-                        font_name: 'font/louis_george_cafe/Louis George Cafe Bold.ttf'
-                        background_normal: ''
-                        background_down: ''
-                        background_color: color
-                        size_hint_y: None
-                        height: tam
-                        on_release: dropdown.select(self.text)
-
-                    Button:
-                        text: 'Agosto'
-                        font_name: 'font/louis_george_cafe/Louis George Cafe Bold.ttf'
-                        background_normal: ''
-                        background_down: ''
-                        background_color: color
-                        size_hint_y: None
-                        height: tam
-                        on_release: dropdown.select(self.text)
-
-                    Button:
-                        text: 'Septiembre'
-                        font_name: 'font/louis_george_cafe/Louis George Cafe Bold.ttf'
-                        background_normal: ''
-                        background_down: ''
-                        background_color: color
-                        size_hint_y: None
-                        height: tam
-                        on_release: dropdown.select(self.text)
-
-                    Button:
-                        text: 'Octubre'
-                        font_name: 'font/louis_george_cafe/Louis George Cafe Bold.ttf'
-                        background_normal: ''
-                        background_down: ''
-                        background_color: color
-                        size_hint_y: None
-                        height: tam
-                        on_release: dropdown.select(self.text)
-
-                    Button:
-                        text: 'Noviembre'
-                        font_name: 'font/louis_george_cafe/Louis George Cafe Bold.ttf'
-                        background_normal: ''
-                        background_down: ''
-                        background_color: color
-                        size_hint_y: None
-                        height: tam
-                        on_release: dropdown.select(self.text)
-
-                    Button:
-                        text: 'Diciembre'
-                        font_name: 'font/louis_george_cafe/Louis George Cafe Bold.ttf'
-                        background_normal: ''
-                        background_down: ''
-                        background_color: color
-                        size_hint_y: None
-                        height: tam
-                        on_release: dropdown.select(self.text)
-
-<DropDown_Year3>:
-    FloatLayout:
-        orientation: 'vertical'
-
-        Button:
-            id: mainbtn
-            background_normal: 'imagenes_Demeter/Elements-Various/drop-down-menu.png'
-            background_down: 'imagenes_Demeter/Elements-Various/drop-down-menu.png'
-            pos_hint: {'x': .6, 'y': .745}
-            size_hint: None, None
-            size: '200dp', '40dp'
-            on_release: dropdown.open(self)
-
-        Label:
-            id: selected_year_label
-            text: 'Seleccione el año'
-            pos_hint: {'x': .575, 'y': .745}
-            size_hint: None, None
-            size: '200dp', '40dp'
-            color: 244/255, 244/255, 244/255, 1
-            font_name: 'font/louis_george_cafe/Louis George Cafe Bold.ttf'
-
-        DropDown:
-            id: dropdown
-            on_select:
-                selected_year_label.text = '{}'.format(args[1])
-
-            ScrollView:
-                size_hint_y: None
-                height: 150
-
-                GridLayout:
-                    cols: 1
-                    size_hint_y: None
-                    height: self.minimum_height
-
-                    Button:
-                        text: '2023'
-                        font_name: 'font/louis_george_cafe/Louis George Cafe Bold.ttf'
-                        background_normal: ''
-                        background_down: ''
-                        background_color: color
-                        size_hint_y: None
-                        height: tam
-                        on_release: dropdown.select(self.text)

@@ -17,7 +17,7 @@ class AlertMoreScreen(Screen):
 
 
         for i in urg:
-            self.ids.to_display.text = self.ids.to_display.text + f'Problema con {crops_names[i[1]]}: el {i[2].day}/{i[2].month}/{i[2].year} a las {i[3].hour}:{i[3].minute}:{i[3].second}\n'
+            self.ids.to_display.text = self.ids.to_display.text + f'Problema con {crops_names[i[1]]}: el {i[2].day}/{i[2].month}/{i[2].year} a las {i[3].hour}:{i[3].minute}:{i[3].second}\n\n'
 
     def unload(self) -> None:
         self.ids.to_display.text = ''

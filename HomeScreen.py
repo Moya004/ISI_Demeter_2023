@@ -32,7 +32,7 @@ class HomeScreen(Screen):
         self.ids.est_2.text = f'TEMP. GENERAL MEDIO: {round(to_display_est[1], 3)}'
         self.ids.est_3.text = f'HUMEDAD GENERAL MEDIO: {round(to_display_est[2], 3)}'
         self.ids.al_1.text = f'CANTIDAD DE REGISTROS: {round(to_display_al[0], 3)}'
-        self.ids.al_2.text = f'CANTIDAD DE alertas: {round(to_display_al[1], 3)}'
+        self.ids.al_2.text = f'CANTIDAD DE ALERTAS: {round(to_display_al[1], 3)}'
         self.ids.al_3.text = f'PORCENTAJE DE ALERTAS: {round(to_display_al[2], 3) * 100}%'
 
 
