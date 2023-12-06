@@ -12,6 +12,8 @@ from kivy.uix.widget import Widget
 class AlertScreen(Screen):
 
     def load(self) -> None:
+        self.ids.select_mes.ids.selected_month_label.text = 'Seleccione el mes'
+        self.ids.select_year.ids.selected_year_label.text = 'Seleccione el año'
         lastA = App.get_running_app().statsManager.lastAlert
         data = len(App.get_running_app().alerts)
         self.ids.alert_amount.text = f'{data}' if data is not None else '0'
@@ -43,6 +45,7 @@ class AlertScreen(Screen):
         result = App.get_running_app().statsManager.get_last_register_given_date(App.get_running_app().usr, anio, mapp[mes])
         self.ids.date_last_register.text = f'{result[2].day}/{result[2].month}/{result[2].year}' if len(result) > 0 else '--/--/--'
         self.ids.time_last_register.text = f'{result[3].hour}:{result[3].minute}:{result[3].second}'if len(result) > 0 else '--:--:--'
+
 class BackgroundColor(Widget):
     pass
 
