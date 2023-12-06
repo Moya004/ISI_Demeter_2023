@@ -27,10 +27,10 @@ class AnalysisScreen(Screen):
         for m in crops:
             crops_names[getattr(m, "_Cultivo__id", 'xd')] = getattr(m, "_Cultivo__name", 'Fuk')
 
-        self.ids.output.text = (f'DATOS ACTUALIZADOS\n\nNombre Cietifico del cultivo: {lastR[1]}\nNombre comun del '
-                                f'cultivo {crops_names[lastR[1]]}\nDATOS RECOLECTADOS\n\nPH : {lastR[4]}\nTEMPERATURA '
-                                f'EN CELSIUS : {lastR[5]}\nHUMEDAD RELATIVA : {lastR[6]}') if lastR is not None else (f'DATOS ACTUALIZADOS\n\nNombre Cietifico del cultivo: \nNombre comun del '
-                                f'cultivo \nDATOS RECOLECTADOS\n\nPH : \nTEMPERATURA '
+        self.ids.output.text = (f'DATOS ACTUALIZADOS\n\nNombre Cietifico del cultivo:            {lastR[1]}\n\nNombre comun del '
+                                f'cultivo                {crops_names[lastR[1]]}\n\nDATOS RECOLECTADOS\n\nNIVEL DE PH :                                           {lastR[4]}\n\nTEMPERATURA '
+                                f'EN CELSIUS :             {lastR[5]}\n\nHUMEDAD RELATIVA :                          {lastR[6]}') if lastR is not None else (f'DATOS ACTUALIZADOS\n\nNombre Cietifico del cultivo: \nNombre comun del '
+                                f'cultivo \nDATOS RECOLECTADOS\n\nNIVEL DE PH : \nTEMPERATURA '
                                 f'EN CELSIUS : \nHUMEDAD RELATIVA : ')
 
     def unload(self) -> None:
